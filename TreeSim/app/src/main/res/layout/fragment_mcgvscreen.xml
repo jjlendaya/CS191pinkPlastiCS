@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent" tools:context="com.pinkplastics.treesim.MCGIScreen"
+                android:background="@color/mcgvchoice">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/mcgvlogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mcgv_icon"
+        android:layout_centerInParent="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/mcgvlogo"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="60dp"
+        android:src="@drawable/treesim_header"/>
+
+
+</RelativeLayout>

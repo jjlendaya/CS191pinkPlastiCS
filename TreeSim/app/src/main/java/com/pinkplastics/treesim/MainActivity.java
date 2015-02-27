@@ -1,19 +1,34 @@
 package com.pinkplastics.treesim;
 
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
 public class MainActivity extends ActionBarActivity {
+
+     private ViewPager mViewPager;
+     private ScreenPagerAdapter mScreenPagerAdapter;
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
-          setContentView(R.layout.activity_main);
-     }
+          setContentView(com.pinkplastics.treesim.R.layout.activity_main);
 
+          setTitle("");
+
+          ActionBar ab = getSupportActionBar();
+          ab.setDisplayShowHomeEnabled(true);
+          ab.setLogo(com.pinkplastics.treesim.R.drawable.ic_launcher);
+          ab.setDisplayUseLogoEnabled(true);
+
+          mViewPager = (ViewPager) findViewById(com.pinkplastics.treesim.R.id.pager);
+          mScreenPagerAdapter = new ScreenPagerAdapter(getSupportFragmentManager());
+
+          mViewPager.setAdapter(mScreenPagerAdapter);
+     }
 
      @Override
      public boolean onCreateOptionsMenu(Menu menu) {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <color name="mcgichoice">#ff37d3bb</color>
+    <color name="simulationmenu">#fffee2b9</color>
+    <color name="usagetrackerchoice">#ffffea6b</color>
+    <color name="mcgvchoice">#ffff0060</color>
+    <color name="mcgisimulations">#ffffedd2</color>
+
+</resources>

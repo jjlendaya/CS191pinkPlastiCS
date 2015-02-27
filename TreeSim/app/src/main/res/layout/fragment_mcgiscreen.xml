@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent" tools:context="com.pinkplastics.treesim.MCGIScreen"
+                android:clickable="false"
+                android:background="@color/mcgichoice">
+
+    <ImageView
+        android:id="@+id/mcgilogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mcgi_icon"
+        android:paddingBottom="30dp"
+        android:layout_centerInParent="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/mcgilogo"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="50dp"
+        android:src="@drawable/treesim_header"/>
+
+    <TextView
+        android:id="@+id/mcgi_name2"
+        android:layout_below="@id/mcgilogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/mcgi_builders_text"
+        android:textSize="26sp"/>
+
+    <TextView
+        android:id="@+id/mcgi_description"
+        android:layout_width="260sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mcgi_name2"
+        android:paddingTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textSize="14sp"
+        android:text="@string/mcgi_desc_text"/>
+
+    <TextView
+        android:id="@+id/mcgi_tapscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mcgi_description"
+        android:paddingTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textSize="11sp"
+        android:text="@string/tap_reminder"/>
+
+
+</RelativeLayout>

@@ -4,5 +4,19 @@
     <string name="app_name">TreeSim</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mcgi_builders_text">Builders</string>
+    <string name="mcgi_desc_text">Build your own data structures like linked lists and binary trees,
+        and see how they work.</string>
+    <string name="title_activity_builder_choice">BuilderChoice</string>
+    <string name="title_activity_linked_list">LinkedList</string>
+    <string name="tap_reminder">Tap screen to choose</string>
+    <string name="ll_title">Linked Lists</string>
+    <string name="ll_desc">Find out how basic linked list operations work by building and running your own linked list.</string>
+    <string name="title_activity_linked_list_simulation">LinkedListSimulation</string>
+    <string name="desc_ll_search_node">Search Node</string>
+    <string name="desc_ll_add_node">Add Node</string>
+    <string name="desc_ll_clear_list">Clear Linked List</string>
+    <string name="desc_ll_default_list">Default Linked List</string>
 
 </resources>

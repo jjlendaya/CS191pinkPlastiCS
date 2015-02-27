@@ -16,6 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BuilderChoice"
+            android:label="@string/title_activity_builder_choice"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pinkplastics.treesim.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LinkedListSimulation"
+            android:label="@string/title_activity_linked_list_simulation"
+            android:parentActivityName=".BuilderChoice" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pinkplastics.treesim.BuilderChoice" />
+        </activity>
     </application>
 
 </manifest>
