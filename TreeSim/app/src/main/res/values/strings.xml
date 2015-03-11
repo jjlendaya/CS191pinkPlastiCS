@@ -18,5 +18,6 @@
     <string name="desc_ll_add_node">Add Node</string>
     <string name="desc_ll_clear_list">Clear Linked List</string>
     <string name="desc_ll_default_list">Default Linked List</string>
+    <string name="dialog_ll_search_node">Input search key:</string>
 
 </resources>
