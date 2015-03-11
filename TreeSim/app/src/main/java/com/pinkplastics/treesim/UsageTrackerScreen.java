@@ -30,6 +30,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*
+Code History:
+Jeynald Endaya      2/11/15        Created the initial version of this screen.
+*/
+
 /*Documentation
      File Creation Date: 02/11/15
      Development Group: Pink Plastics

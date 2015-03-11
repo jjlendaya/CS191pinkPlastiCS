@@ -30,11 +30,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*
+     Code History:
+     Jeynald Endaya      2/11/15        Created the class and adapted for the app
+ */
+
 /*Documentation
      File Creation Date: 02/11/15
      Development Group: Pink Plastics
      Client Group: 080419 Android
-
  */
 
 package com.pinkplastics.treesim;
@@ -64,7 +68,9 @@ public class MCGIScreen extends Fragment {
 
 
      /**
-      * Use this factory method to create a new instance of
+      * newInstance
+      * Creation Date: 02/11/2015
+      * Purpose: Use this factory method to create a new instance of
       * this fragment using the provided parameters.
       *
       * @param param1 Parameter 1.
@@ -79,11 +85,23 @@ public class MCGIScreen extends Fragment {
           return fragment;
      }
 
+     /**
+      * Constructor
+      * Creation Date: 02/11/2015
+      * Purpose: Creates this fragment
+      */
      public MCGIScreen() {
           // Required empty public constructor
      }
 
      @Override
+     /**
+      * onCreate
+      * Creation Date: 02/11/2015
+      * Purpose: Default onCreate function for android
+      *
+      * @param savedInstanceState  for returning to this particular screen
+      */
      public void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           if (getArguments() != null) {
@@ -92,6 +110,14 @@ public class MCGIScreen extends Fragment {
      }
 
      @Override
+     /**
+      * onCreateView
+      * Creation Date: 02/11/2015
+      * Purpose: Used to create the screen that'll be displayed
+      *
+      * @param      inflater    Parameter 1.
+      * @return     View        The view to be displayed by the screen.
+      */
      public View onCreateView(LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
           // Inflate the layout for this fragment
