@@ -32,6 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pinkplastics.treesim.BuilderChoice" />
         </activity>
+        <activity
+            android:name=".DemoChoice"
+            android:label="@string/title_activity_demo_choice"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pinkplastics.treesim.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

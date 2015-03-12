@@ -19,5 +19,15 @@
     <string name="desc_ll_clear_list">Clear Linked List</string>
     <string name="desc_ll_default_list">Default Linked List</string>
     <string name="dialog_ll_search_node">Input search key:</string>
+    <string name="title_activity_demo_choice">Choose a Demo</string>
+    <string name="mcgv_demos_text">Demos</string>
+    <string name="ptt_title">Preorder Tree Traversal</string>
+    <string name="ptt_desc">See the preorder traversal of a tree in action.</string>
+    <string name="itt_title">Inorder Tree Traversal</string>
+    <string name="itt_desc">See the inorder traversal of a tree in action.</string>
+    <string name="pott_title">Postorder Tree Traversal</string>
+    <string name="pott_desc">See the postorder traversal of a tree in action.</string>
+    <string name="mcgv_desc_text">Find demonstrations of algorithms run on common data structures
+    like traversals on trees. Just tap play and watch!</string>
 
 </resources>

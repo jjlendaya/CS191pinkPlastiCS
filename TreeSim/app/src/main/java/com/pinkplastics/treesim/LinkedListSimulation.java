@@ -34,6 +34,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 Code History:
 Jeynald Endaya      2/27/2015      Created and edited to handle initial screen for linked list sim
 Jeynald Endaya      3/12/2015      Added search node dialog box
+Jeynald Endaya      3/13/2015      Added to search node function: collecting data from NumberPicker.
 */
 
 /*
@@ -71,6 +72,8 @@ public class LinkedListSimulation extends ActionBarActivity {
 
           ll = new MyLinkedList();
           defaultList();
+
+          setTitle("Linked Lists");
      }
 
 

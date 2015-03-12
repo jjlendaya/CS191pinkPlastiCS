@@ -32,23 +32,24 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 /*
      Code History:
-     Jeynald Endaya      2/11/15        Created the class and adapted for the app
- */
+     Jeynald Endaya      3/13/2015      Created and edited the file.
+*/
 
-/*Documentation
-     File Creation Date: 02/11/15
+/*
+     File Creation Date: 3/13/2015
      Development Group: Pink Plastics
      Client Group: 080419 Android
+     Code Summary: Fragment for displaying the Postorder Tree Traversal option in demos.
+*/
 
- */
 
 package com.pinkplastics.treesim;
 
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,94 +57,71 @@ import android.widget.TextView;
 
 
 /**
- * A simple {@link android.app.Fragment} subclass.
- * Use the {@link com.pinkplastics.treesim.MCGVScreen#newInstance} factory method to
+ * A simple {@link android.support.v4.app.Fragment} subclass.
+ * Use the {@link PostorderTraversalScreen#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MCGVScreen extends Fragment {
-     // TODO: Rename parameter arguments, choose names that match
-     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-     private static final String ARG_PARAM1 = "param1";
+public class PostorderTraversalScreen extends Fragment {
 
-     // TODO: Rename and change types of parameters
-     private String mParam1;
+     private static final String ARG_POSITION = "com.pinkplastics.treesim.arg.position";
+     private String mPosition;
 
 
      /**
       * Use this factory method to create a new instance of
       * this fragment using the provided parameters.
       *
-      * @param param1 Parameter 1.
-      * @return A new instance of fragment MCGIScreen.
+      * @param position Parameter 1.
+      * @return A new instance of fragment PreorderTraversalScreen.
       */
      // TODO: Rename and change types and number of parameters
-     public static MCGVScreen newInstance(String param1) {
-          MCGVScreen fragment = new MCGVScreen();
+     public static PostorderTraversalScreen newInstance(String position) {
+          PostorderTraversalScreen fragment = new PostorderTraversalScreen();
           Bundle args = new Bundle();
-          args.putString(ARG_PARAM1, param1);
+          args.putString(ARG_POSITION, position);
           fragment.setArguments(args);
           return fragment;
      }
 
-     /**
-      * Constructor
-      * Creation Date: 02/11/2015
-      * Purpose: Creates this fragment
-      */
-     public MCGVScreen() {
+     public PostorderTraversalScreen() {
           // Required empty public constructor
      }
 
      @Override
-     /**
-      * onCreate
-      * Creation Date: 02/11/2015
-      * Purpose: Default onCreate function for android
-      *
-      * @param savedInstanceState  for returning to this particular screen
-      */
      public void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           if (getArguments() != null) {
-               mParam1 = getArguments().getString(ARG_PARAM1);
+               mPosition = getArguments().getString(ARG_POSITION);
           }
      }
 
      @Override
-     /**
-      * onCreateView
-      * Creation Date: 02/11/2015
-      * Purpose: Used to create the screen that'll be displayed
-      *
-      * @param      inflater    Parameter 1.
-      * @return     View        The view to be displayed by the screen.
-      */
      public View onCreateView(LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
           // Inflate the layout for this fragment
-          View view = inflater.inflate(com.pinkplastics.treesim.R.layout.fragment_mcgvscreen, container, false);
+          View view = inflater.inflate(R.layout.fragment_postorder_traversal_screen, container, false);
 
           Typeface heroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/hero.otf");
-          TextView builders = (TextView) view.findViewById(com.pinkplastics.treesim.R.id.mcgv_name);
+          TextView builders = (TextView) view.findViewById(R.id.pott_screen_name);
           builders.setTypeface(heroFont);
 
-          TextView desc = (TextView) view.findViewById(com.pinkplastics.treesim.R.id.mcgv_description);
+          TextView desc = (TextView) view.findViewById(R.id.pott_description);
           desc.setTypeface(heroFont);
 
-          TextView reminder = (TextView) view.findViewById(com.pinkplastics.treesim.R.id.mcgv_tapscreen);
+          TextView reminder = (TextView) view.findViewById(R.id.pott_tapscreen);
           reminder.setTypeface(heroFont);
 
           view.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), DemoChoice.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(getActivity(), BuilderChoice.class);
+                    //startActivity(intent);
 
                }
           });
 
-
           return view;
      }
+
 
 }

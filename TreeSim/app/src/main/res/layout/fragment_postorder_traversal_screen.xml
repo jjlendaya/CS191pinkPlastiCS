@@ -1,52 +1,53 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                android:layout_height="match_parent" tools:context="com.pinkplastics.treesim.MCGIScreen"
-                android:background="@color/mcgvchoice">
-
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/simulationmenu"
+             tools:context="com.pinkplastics.treesim.PreorderTraversalScreen">
 
     <ImageView
-        android:id="@+id/mcgvlogo"
+        android:id="@+id/pott_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/mcgv_icon"
+        android:src="@drawable/linked_list_icon"
         android:paddingBottom="30dp"
         android:layout_centerInParent="true"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/mcgvlogo"
+        android:layout_above="@id/pott_icon"
         android:layout_centerHorizontal="true"
         android:paddingBottom="50dp"
         android:src="@drawable/treesim_header"/>
 
     <TextView
-        android:id="@+id/mcgv_name"
-        android:layout_below="@id/mcgvlogo"
+        android:id="@+id/pott_screen_name"
+        android:layout_below="@id/pott_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:text="@string/mcgv_demos_text"
+        android:text="@string/pott_title"
         android:textSize="26sp"/>
 
     <TextView
-        android:id="@+id/mcgv_description"
+        android:id="@+id/pott_description"
         android:layout_width="260sp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/mcgv_name"
+        android:layout_below="@id/pott_screen_name"
         android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:gravity="center_horizontal"
         android:textSize="14sp"
-        android:text="@string/mcgv_desc_text"/>
+        android:text="@string/pott_desc"/>
 
     <TextView
-        android:id="@+id/mcgv_tapscreen"
+        android:id="@+id/pott_tapscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/mcgv_description"
+        android:layout_below="@id/pott_description"
         android:paddingTop="20dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"

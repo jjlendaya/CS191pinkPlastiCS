@@ -31,82 +31,53 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  */
 
 /*
-Code History:
-2/11/2015 - Created the initial MainActivity file
- */
+     Code History:
+     Jeynald Endaya      3/13/2015      Created and edited for choosing the MCGV simulation to play
+*/
 
 /*
-File Creation Date: 2/11/2015
-Development Group: Pink Plastics
-Client Group: 080419 Android
-Code Summary: The root screen for the application
- */
-
-
+     File Creation Date: 3/13/2015
+     Development Group: Pink Plastics
+     Client Group: 080419 Android
+     Code Summary: Activity for choosing the simulations within the demos.
+*/
 
 package com.pinkplastics.treesim;
 
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class MainActivity extends ActionBarActivity {
+
+public class DemoChoice extends ActionBarActivity {
 
      private ViewPager mViewPager;
-     private ScreenPagerAdapter mScreenPagerAdapter;
+     private DemoScreenPagerAdapter mScreenPagerAdapter;
 
      @Override
-     /**
-      * onCreate
-      * Creation Date: 02/11/2015
-      * Purpose: Default onCreate function for android
-      *
-      * @param savedInstanceState  for returning to this particular screen
-      */
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
-          setContentView(com.pinkplastics.treesim.R.layout.activity_main);
+          setContentView(R.layout.activity_demo_choice);
+          View view = findViewById(android.R.id.content);
 
-          setTitle("");
-
-          ActionBar ab = getSupportActionBar();
-          ab.setDisplayShowHomeEnabled(true);
-          ab.setLogo(com.pinkplastics.treesim.R.drawable.ic_launcher);
-          ab.setDisplayUseLogoEnabled(true);
-
-          mViewPager = (ViewPager) findViewById(com.pinkplastics.treesim.R.id.activity_main_pager);
-          mScreenPagerAdapter = new ScreenPagerAdapter(getSupportFragmentManager());
+          mViewPager = (ViewPager) findViewById(R.id.activity_demo_choice_pager);
+          mScreenPagerAdapter = new DemoScreenPagerAdapter(getSupportFragmentManager());
 
           mViewPager.setAdapter(mScreenPagerAdapter);
      }
 
+
      @Override
-     /**
-      * onCreateOptionsMenu
-      * Creation Date: 02/11/2015
-      * Purpose: Default onCreateOptionsMenu for android activities
-      *
-      * @param menu the menu to be inflated
-      * @return     boolean   always returns true if this method executes
-      */
      public boolean onCreateOptionsMenu(Menu menu) {
           // Inflate the menu; this adds items to the action bar if it is present.
-          getMenuInflater().inflate(R.menu.menu_main, menu);
+          getMenuInflater().inflate(R.menu.menu_demo_choice, menu);
           return true;
      }
 
      @Override
-     /**
-      * onOptionsItemSelected
-      * Creation Date: 02/11/2015
-      * Purpose: Default onOptionsItemSelected method for android activities
-      *
-      * @param      item      the menu item that was selected
-      * @return     boolean   dependent on android item clicks
-      */
      public boolean onOptionsItemSelected(MenuItem item) {
           // Handle action bar item clicks here. The action bar will
           // automatically handle clicks on the Home/Up button, so long

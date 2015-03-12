@@ -7,6 +7,8 @@ import android.support.v4.app.DialogFragment;
 import android.view.View;
 import android.widget.NumberPicker;
 
+import java.util.Date;
+
 /**
  * Created by Jeynald on 3/12/2015.
  */
@@ -15,6 +17,7 @@ import android.widget.NumberPicker;
 public class LLSearchInputFragment extends DialogFragment {
 
      NumberPicker searchKeyPicker;
+
 
      @Override
      public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class LLSearchInputFragment extends DialogFragment {
                   .setView(v)
                   .create();
      }
+
 
      public int getInputValue() {
           return searchKeyPicker.getValue();
