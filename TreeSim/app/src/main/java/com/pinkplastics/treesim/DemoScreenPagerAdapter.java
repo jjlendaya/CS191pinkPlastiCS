@@ -33,6 +33,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 /*
      Code History:
      3/13/2015: Created initial version from the first ScreenPagerAdapter class
+     3/20/2015: Enabled semi-infinite scrolling.
 */
 
 /*

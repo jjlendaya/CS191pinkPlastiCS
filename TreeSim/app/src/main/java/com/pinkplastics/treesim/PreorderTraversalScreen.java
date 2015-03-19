@@ -81,11 +81,23 @@ public class PreorderTraversalScreen extends Fragment {
           return fragment;
      }
 
+
+     /**
+      * Constructor
+      * Creation Date: 3/20/2015
+      * Purpose: Auto-generated function
+      *
+      */
      public PreorderTraversalScreen() {
           // Required empty public constructor
      }
 
      @Override
+     /**
+      * Constructor
+      * Creation Date: 3/13/2015
+      * Purpose: Auto-generated function
+      */
      public void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           if (getArguments() != null) {
@@ -94,6 +106,16 @@ public class PreorderTraversalScreen extends Fragment {
      }
 
      @Override
+     /**
+      * onCreateView
+      * Creation Date: 3/13/2015
+      * Purpose: Standard android function for actions to perform when creating fragments.
+      * @param inflater            default onCreateView parameter
+      * @param container           default onCreateView parameter
+      * @param savedInstanceState  default onCreateView parameter
+      *
+      * @return     Returns the View made by this fragment
+      */
      public View onCreateView(LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
           // Inflate the layout for this fragment
