@@ -13,6 +13,8 @@
     <string name="tap_reminder">Tap screen to choose</string>
     <string name="ll_title">Linked Lists</string>
     <string name="ll_desc">Find out how basic linked list operations work by building and running your own linked list.</string>
+    <string name="bt_title">Binary Trees</string>
+    <string name="bt_desc">Make your very own binary tree and learn basic operations for one of the most popular CS data structures.</string>
     <string name="title_activity_linked_list_simulation">LinkedListSimulation</string>
     <string name="desc_ll_search_node">Search Node</string>
     <string name="desc_ll_add_node">Add Node</string>

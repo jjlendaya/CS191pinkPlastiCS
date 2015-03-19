@@ -32,64 +32,70 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 /*
      Code History:
-     Jeynald Endaya      2/27/2015      Created and edited to handle initial screen for linked list sim
-     Jeynald Endaya      3/20/2015      Modified to accommodate paging.
+     3/13/2015: Created initial version from the first ScreenPagerAdapter class
+     3/20/2015: Enabled semi-infinite scrolling.
 */
 
 /*
      File Creation Date: 2/27/2015
      Development Group: Pink Plastics
      Client Group: 080419 Android
-     Code Summary: Activity for choosing the simulations within the builders
-*/
+     Code Summary: Auto-generated class for screen swiping within the Demos.
+ */
 
 package com.pinkplastics.treesim;
 
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 
-public class BuilderChoice extends ActionBarActivity {
+/**
+ * Created by Jeynald on 2/27/2015.
+ */
+public class BuilderScreenPagerAdapter extends FragmentPagerAdapter {
+     public static final int NUM_OF_SCREENS = 1000000;
 
-     ViewPager mViewPager;
-     BuilderScreenPagerAdapter mBuilderScreenPagerAdapter;
-
-     @Override
-     protected void onCreate(Bundle savedInstanceState) {
-          super.onCreate(savedInstanceState);
-          setContentView(R.layout.activity_builder_choice);
-
-          setTitle("Choose A Builder");
-
-          mViewPager = (ViewPager) findViewById(R.id.builder_choice_pager);
-          mBuilderScreenPagerAdapter = new BuilderScreenPagerAdapter(getSupportFragmentManager());
-
-          mViewPager.setAdapter(mBuilderScreenPagerAdapter);
-
-     }
-
-
-     @Override
-     public boolean onCreateOptionsMenu(Menu menu) {
-          // Inflate the menu; this adds items to the action bar if it is present.
-          getMenuInflater().inflate(R.menu.menu_builder_choice, menu);
-          return true;
+     /**
+      * Constructor
+      * Creation Date: 2/27/2015
+      * Purpose: Auto-generated function
+      *
+      * @param     fm         the fragment manager for handling fragment transactions
+      */
+     public BuilderScreenPagerAdapter(FragmentManager fm) {
+          super(fm);
      }
 
      @Override
-     public boolean onOptionsItemSelected(MenuItem item) {
-          // Handle action bar item clicks here. The action bar will
-          // automatically handle clicks on the Home/Up button, so long
-          // as you specify a parent activity in AndroidManifest.xml.
-          int id = item.getItemId();
-
-          //noinspection SimplifiableIfStatement
-          if (id == R.id.action_settings) {
-               return true;
+     /**
+      * getItem
+      * Creation Date: 2/27/2015
+      * Purpose: Auto-generated function
+      *
+      * @param     position   the page number of a fragment
+      * @return    Fragment   the fragment to be displayed
+      */
+     public Fragment getItem(int position) {
+          switch (position % 3) {
+               case 0:
+                    return LinkedListScreen.newInstance(Integer.toString(position));
+               case 1:
+                    return InorderTraversalScreen.newInstance(Integer.toString(position));
           }
-
-          return super.onOptionsItemSelected(item);
+          return null;
      }
+
+
+     @Override
+     /**
+      * getCount
+      * Creation Date: 2/27/2015
+      * Purpose: Auto-generated function for getting the number of screens
+      *
+      * @return    int   the number of screens the menu has
+      */
+     public int getCount() {
+          return NUM_OF_SCREENS;
+     }
+
 }

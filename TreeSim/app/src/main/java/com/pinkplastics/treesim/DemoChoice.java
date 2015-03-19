@@ -61,7 +61,7 @@ public class DemoChoice extends ActionBarActivity {
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_demo_choice);
-          View view = findViewById(android.R.id.content);
+          //View view = findViewById(android.R.id.content);
 
           mViewPager = (ViewPager) findViewById(R.id.activity_demo_choice_pager);
           mScreenPagerAdapter = new DemoScreenPagerAdapter(getSupportFragmentManager());
