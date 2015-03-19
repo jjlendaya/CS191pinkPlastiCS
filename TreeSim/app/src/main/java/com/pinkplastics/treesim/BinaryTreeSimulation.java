@@ -32,70 +32,75 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 /*
      Code History:
-     3/13/2015: Created initial version from the first ScreenPagerAdapter class
-     3/20/2015: Enabled semi-infinite scrolling.
+     Jeynald Endaya      3/20/2015      Created and setup the file.
 */
 
 /*
-     File Creation Date: 2/27/2015
+     File Creation Date: 3/20/2015
      Development Group: Pink Plastics
      Client Group: 080419 Android
-     Code Summary: Auto-generated class for screen swiping within the Demos.
- */
+     Code Summary: Activity for handling the binary tree builder simulation.
+*/
 
 package com.pinkplastics.treesim;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
-/**
- * Created by Jeynald on 2/27/2015.
- */
-public class BuilderScreenPagerAdapter extends FragmentPagerAdapter {
-     public static final int NUM_OF_SCREENS = 1000000;
 
+public class BinaryTreeSimulation extends ActionBarActivity {
+
+     @Override
      /**
-      * Constructor
-      * Creation Date: 2/27/2015
-      * Purpose: Auto-generated function
+      * onCreate
+      * Creation Date: 03/20/2015
+      * Purpose: Default onCreate function for android
       *
-      * @param     fm         the fragment manager for handling fragment transactions
+      * @param savedInstanceState  for returning to this particular screen
       */
-     public BuilderScreenPagerAdapter(FragmentManager fm) {
-          super(fm);
+     protected void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.activity_binary_tree_simulation);
+     }
+
+
+     @Override
+     /**
+      * onCreateOptionsMenu
+      * Creation Date: 3/20/2015
+      * Purpose: Default onCreateOptionsMenu for android activities
+      *
+      * @param menu the menu to be inflated
+      * @return     boolean   always returns true if this method executes
+      */
+     public boolean onCreateOptionsMenu(Menu menu) {
+          // Inflate the menu; this adds items to the action bar if it is present.
+          getMenuInflater().inflate(R.menu.menu_binary_tree_simulation, menu);
+          return true;
      }
 
      @Override
      /**
-      * getItem
-      * Creation Date: 2/27/2015
-      * Purpose: Auto-generated function
+      * onOptionsItemSelected
+      * Creation Date: 03/20/2015
+      * Purpose: Default onOptionsItemSelected method for android activities
       *
-      * @param     position   the page number of a fragment
-      * @return    Fragment   the fragment to be displayed
+      * @param      item      the menu item that was selected
+      * @return     boolean   dependent on android item clicks
       */
-     public Fragment getItem(int position) {
-          switch (position % 2) {
-               case 0:
-                    return LinkedListScreen.newInstance(Integer.toString(position));
-               case 1:
-                    return BinaryTreeScreen.newInstance(Integer.toString(position));
+     public boolean onOptionsItemSelected(MenuItem item) {
+          // Handle action bar item clicks here. The action bar will
+          // automatically handle clicks on the Home/Up button, so long
+          // as you specify a parent activity in AndroidManifest.xml.
+          int id = item.getItemId();
+
+          //noinspection SimplifiableIfStatement
+          if (id == R.id.action_settings) {
+               return true;
           }
-          return null;
+
+          return super.onOptionsItemSelected(item);
      }
-
-
-     @Override
-     /**
-      * getCount
-      * Creation Date: 2/27/2015
-      * Purpose: Auto-generated function for getting the number of screens
-      *
-      * @return    int   the number of screens the menu has
-      */
-     public int getCount() {
-          return NUM_OF_SCREENS;
-     }
-
 }

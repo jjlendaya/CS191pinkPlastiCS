@@ -64,6 +64,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pinkplastics.treesim.DemoChoice" />
         </activity>
+        <activity
+            android:name=".BinaryTreeSimulation"
+            android:label="@string/title_activity_binary_tree_simulation"
+            android:parentActivityName=".BuilderChoice" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pinkplastics.treesim.BuilderChoice" />
+        </activity>
     </application>
 
 </manifest>
