@@ -39,7 +39,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      File Creation Date: 3/13/2015
      Development Group: Pink Plastics
      Client Group: 080419 Android
-     Code Summary: Fragment for displaying the Postorder Tree Traversal option in demos.
+     Code Summary: Fragment for displaying the Linked List Screen option in builders.
 */
 
 

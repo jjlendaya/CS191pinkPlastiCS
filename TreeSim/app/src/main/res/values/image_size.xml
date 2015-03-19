@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name = "short_arrow"> 60dp </dimen>
+    <dimen name = "node_obj"> 120dp </dimen>
+    <dimen name = "long_arrow"> 480dp </dimen>
+    <dimen name = "text"> 30dp </dimen>
+    <dimen name = "text_lmargin"> 20dp </dimen>
+
+    <dimen name = "traversal_node"> 90dp </dimen>
+    <dimen name = "traversal_1l"> 140.5dp </dimen>
+    <dimen name = "traversal_2l"> 51.5dp </dimen>
+    <dimen name = "traversal_3l"> 27dp </dimen>
+
+</resources>
