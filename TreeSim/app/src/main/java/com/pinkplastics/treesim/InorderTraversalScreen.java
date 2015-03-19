@@ -62,7 +62,7 @@ import android.widget.TextView;
  */
 public class InorderTraversalScreen extends Fragment {
 
-     private static final String ARG_POSITION = "com.pinkplastics.treesim.arg.position";
+     private static final String ARG_POSITION = "position";
      private String mPosition;
 
 
@@ -113,8 +113,8 @@ public class InorderTraversalScreen extends Fragment {
           view.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                    //Intent intent = new Intent(getActivity(), BuilderChoice.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(getActivity(), InorderTraversalSimulation.class);
+                    startActivity(intent);
 
                }
           });

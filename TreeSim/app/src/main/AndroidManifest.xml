@@ -40,6 +40,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pinkplastics.treesim.MainActivity" />
         </activity>
+        <activity
+            android:name=".PreorderTraversalSimulation"
+            android:label="@string/title_activity_preorder_traversal_simulation"
+            android:parentActivityName=".DemoChoice" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pinkplastics.treesim.DemoChoice" />
+        </activity>
+        <activity
+            android:name=".InorderTraversalSimulation"
+            android:label="@string/title_activity_inorder_traversal_simulation"
+            android:parentActivityName=".DemoChoice" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pinkplastics.treesim.DemoChoice" />
+        </activity>
+        <activity
+            android:name=".PostorderTraversalSimulation"
+            android:label="@string/title_activity_postorder_traversal_simulation"
+            android:parentActivityName=".DemoChoice" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pinkplastics.treesim.DemoChoice" />
+        </activity>
     </application>
 
 </manifest>

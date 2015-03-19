@@ -29,5 +29,8 @@
     <string name="pott_desc">See the postorder traversal of a tree in action.</string>
     <string name="mcgv_desc_text">Find demonstrations of algorithms run on common data structures
     like traversals on trees. Just tap play and watch!</string>
+    <string name="title_activity_preorder_traversal_simulation">Preorder Tree Traversal</string>
+    <string name="title_activity_inorder_traversal_simulation">Inorder Tree Traversal</string>
+    <string name="title_activity_postorder_traversal_simulation">Postorder Tree Traversal</string>
 
 </resources>

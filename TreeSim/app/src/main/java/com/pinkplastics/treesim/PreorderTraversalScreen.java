@@ -42,9 +42,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      Code Summary: Fragment for displaying the Preorder Tree Traversal option in demos.
 */
 
-
 package com.pinkplastics.treesim;
-
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -63,7 +61,7 @@ import android.widget.TextView;
  */
 public class PreorderTraversalScreen extends Fragment {
 
-     private static final String ARG_POSITION = "com.pinkplastics.treesim.arg.position";
+     private static final String ARG_POSITION = "position";
      private String mPosition;
 
 
@@ -114,8 +112,8 @@ public class PreorderTraversalScreen extends Fragment {
           view.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                    //Intent intent = new Intent(getActivity(), BuilderChoice.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(getActivity(), PreorderTraversalSimulation.class);
+                    startActivity(intent);
 
                }
           });
