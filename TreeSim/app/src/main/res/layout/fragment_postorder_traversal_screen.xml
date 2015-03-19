@@ -10,7 +10,7 @@
         android:id="@+id/pott_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/linked_list_icon"
+        android:src="@drawable/demos_postorder_icon"
         android:paddingBottom="30dp"
         android:layout_centerInParent="true"/>
 
@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/pott_icon"
         android:layout_centerHorizontal="true"
-        android:paddingBottom="50dp"
-        android:src="@drawable/treesim_header"/>
+        android:paddingBottom="30dp"
+        android:src="@drawable/demos_choose"/>
 
     <TextView
         android:id="@+id/pott_screen_name"
