@@ -44,6 +44,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 package com.pinkplastics.treesim;
 
+import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -55,6 +56,7 @@ import android.widget.Button;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -79,15 +81,11 @@ public class PostorderTraversalSimulation extends ActionBarActivity {
           setContentView(R.layout.treetraversal);
 
           FrameLayout fl = (FrameLayout) findViewById(R.id.NodeLayout);
-          /*
-          Button btn = new Button(this);
-          FrameLayout.LayoutParams btnParams = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-          btnParams.setMargins(0,0,0,0);
-          btn.setLayoutParams(btnParams);
+          Typeface heroFont = Typeface.createFromAsset(getAssets(), "fonts/hero.otf");
 
-          btn.setText("Play");
-          fl.addView(btn);
-          */
+          TextView reminder = (TextView) findViewById(R.id.traversal_tapscreen);
+          reminder.setTypeface(heroFont);
+
           fl.setOnClickListener(
                new View.OnClickListener() {
                     public void onClick(View v) {

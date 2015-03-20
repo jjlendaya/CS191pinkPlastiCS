@@ -29,16 +29,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
 
-Authors:
-     ALBANO, Romeo Senen
-     ENDAYA, Jeynald Jeyromme
-     QUINONES, Yzabel Iesa
+Code History:
+        Romeo Senen Albano     02/25/2015     Initial Draft
+        Yzabel Iesa Quinones   03/19/2015     Changed linked list to accommodate null node
 
-Code History: 
-     Romeo Senen Albano     02/25/2015     Initial Draft
-*/
-
-/*
      File Creation Date: 02/25/2015
      Development Group: Pink PlastiCS
      Client Group: #080419 Android 
@@ -51,36 +45,35 @@ public class MyLinkedList {
      public Node head;
      public int size;
 
-     /**
-      * Constructor
-      * Purpose: Creates an empty linked list with head node set to null
-      */
      public MyLinkedList() {
           this.head = null;
           this.size = 0;
      }
 
-     /**
+     /*
           Name: initialize
           Creation Date: 02/25/2015
           Purpose: Used to give/initialize a node in an empty linkedlist
           Arguments:
-          @param    data    Data to be added in an empty linkedlist
+               Integer    Data to be added in an empty linkedlist
           Required File: Node File
+          Return Value: none
      */
      public void initialize( int data ) {
           head = new Node(data);
+          add(-1,1);
           size++;
      }
 
-     /**
+     /*
           Name: add
           Creation Date: 02/25/2015
-          Purpose: Inserting a node in a non-empty Linked List in a specified index
+          Purpose: Inserting a node in a non-empty linkedlist in a secified index
           Arguments:
-          @param data    Data to be added in the Linked List
-          @param index   Index where the node will be placed in the Linked List
+               Integer     Data to be added in the linkedlist
+               Integer     Index where the node will be placed in the linkedlist
           Required File: Node File
+          Return Value: none
 
      */
      public void add( int data, int index ) {
@@ -92,7 +85,7 @@ public class MyLinkedList {
                new_n.next = head;
                head = new_n;
           }
-          
+
           else {
                for( int x=0; x<index; x++ ) {
                     previous = current;
@@ -100,23 +93,22 @@ public class MyLinkedList {
                }
 
                new_n.next = current;
-               try {
-                    previous.next = new_n;
-               } catch (NullPointerException e) {
-               }
+               previous.next = new_n;
           }
 
           size++;
      }
 
 
-     /**
-          delete
+     /*
+          Name: delete
           Creation Date: 02/25/2015
-          Purpose: Deleting an index-specified node from a non-empty linkedlist
+          Purpose: Deleting a index specified node from a non-empty linkedlist
           Arguments:
-          @param    index   Index of the node to be deleted from the linkedlist
+               Integer     Index of the node to be deleted from the linkedlist
           Required File: Node File
+          Return Value: none
+
      */
      public void delete( int index ) {
           Node current = head;
@@ -130,7 +122,7 @@ public class MyLinkedList {
                head = current.next;
                current.next = null;
           }
-          
+
           else {
                for( int x=0; x<index; x++ ) {
                     previous = current;
@@ -143,93 +135,86 @@ public class MyLinkedList {
           size--;
      }
 
-     /**
-          getItem
+     /*
+          Name: search
           Creation Date: 02/25/2015
-          Purpose: Returns the integer data in the specified index in the linkedlist 
+          Purpose: Returns the integer data in the specified index in the linkedlist
           Arguments:
-          @param    index   Index of the desired data in the linkedlist
+               Integer     Index of the desired data in the linkedlist
           Required File: Node File
           Return Value: integer
 
      */
-     public int getItem( int index ) {
+     public int search( int index ) {
           Node current = head;
 
-          for( int x=0; x < index; x++ ) {
+          for( int x=0; x<index; x++ ) {
                current = current.next;
           }
 
           return current.getData();
      }
 
-     /**
-          Name: search
-          Creation Date: 02/26/2015
-          Purpose: Returns the index of a node that contains a given value.
-          Arguments:
-          @param    value   Value of that is being searched in the list
-          Required File: Node File
-          Return Value:
-          @return     Integer     Index of the node that contains value or -1 if value cannot be found in linked list.
-     */
-     public int search( int value ) {
-          Node current = head;
-
-          int x;
-          for( x=0; current.getData() != value && x < this.getSize(); x++ ) {
-               current = current.next;
-          }
-
-          return (x==this.getSize())?-1:x;
-     }
-
-     /**
-          clear
+     /*
+          Name: clear
           Creation Date: 02/25/2015
-          Purpose: Clearing the linkedlist / makes the linked list empty.
+          Purpose: Clearing the linked list / making the linked list into a null value
+          Arguments: none
           Required File: Node File
+          Return Value: none
+
      */
      public void clear() {
-          head = null;
-          size = 0;
+          head = new Node(-1);
+          size = 1;
      }
 
-     /**
-          defaultList
+     /*
+          Name: defaultList
           Creation Date: 02/25/2015
-          Purpose: Giving the linkedlist some default values for initialization.
+          Purpose: Giving the linked list some default values
+          Arguments: none
+          Required File: none
+          Return Value: none
+
      */
      public void defaultList() {
           clear();
-          
-          int[] data = { 1, 2, 3 };
+
+          int[] data = { 99, 69, 25, 53, 3 };
+          //Node n = null;
 
           initialize(data[0]);
+          size--;
 
-          for( int x=1; x<3; x++ ) {
+          for( int x=1; x<data.length; x++ ) {
                add( data[x], x );
           }
      }
 
-     /**
+     /*
           Name: getSize
           Creation Date: 02/25/2015
-          Purpose: Getting the size of the linkedlist
-          @return   size of this linked list
+          Purpose: Getting the size of the linked list
+          Arguments: none
+          Required File: none
+          Return Value: integer
+
      */
      public int getSize() {
           return size;
      }
 
-     /**
+     /*
           Name: isEmpty
           Creation Date: 02/25/2015
-          Purpose: Checking if the linkedlist is empty or not
-          @return   true if this list is empty; false if not
+          Purpose: Checking if the linked list is empty or not
+          Arguments: none
+          Required File: none
+          Return Value: boolean
+
      */
      public boolean isEmpty() {
-          return (head == null);
+          return (head.getData() == -1);
      }
-
 }

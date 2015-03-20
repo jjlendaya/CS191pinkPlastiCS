@@ -363,6 +363,14 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/traversal_tapscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:textSize="11sp"
+        android:text="@string/tap_play_reminder"/>
+
 
 
 </FrameLayout>

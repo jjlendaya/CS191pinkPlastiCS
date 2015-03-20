@@ -3,12 +3,13 @@
                 android:layout_height="match_parent" tools:context="com.pinkplastics.treesim.MCGIScreen"
                 android:background="@color/usagetrackerchoice">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <ImageView
         android:id="@+id/usagetrackerlogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/usage_tracker_icon"
+        android:paddingBottom="30dp"
         android:layout_centerInParent="true"/>
 
     <ImageView
@@ -16,7 +17,41 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/usagetrackerlogo"
         android:layout_centerHorizontal="true"
-        android:paddingBottom="60dp"
+        android:paddingBottom="50dp"
         android:src="@drawable/treesim_header"/>
+
+    <TextView
+        android:id="@+id/usagetracker_name"
+        android:layout_below="@id/usagetrackerlogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/usagetracker_text"
+        android:textSize="26sp"/>
+
+    <TextView
+        android:id="@+id/usagetracker_description"
+        android:layout_width="260sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usagetracker_name"
+        android:paddingTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textSize="14sp"
+        android:text="@string/usagetracker_desc_text"/>
+
+    <TextView
+        android:id="@+id/mcgv_tapscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usagetracker_description"
+        android:paddingTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textSize="11sp"
+        android:text="@string/tap_reminder"/>
+
 
 </RelativeLayout>

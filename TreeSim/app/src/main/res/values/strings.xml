@@ -11,6 +11,7 @@
     <string name="title_activity_builder_choice">BuilderChoice</string>
     <string name="title_activity_linked_list">LinkedList</string>
     <string name="tap_reminder">Tap screen to choose</string>
+    <string name="tap_play_reminder">Tap screen to play</string>
     <string name="ll_title">Linked Lists</string>
     <string name="ll_desc">Find out how basic linked list operations work by building and running your own linked list.</string>
     <string name="bt_title">Binary Trees</string>
@@ -23,6 +24,7 @@
     <string name="dialog_ll_search_node">Input search key:</string>
     <string name="title_activity_demo_choice">Choose A Demo</string>
     <string name="mcgv_demos_text">Demos</string>
+    <string name="usagetracker_text">Usage Tracker</string>
     <string name="ptt_title">Preorder Tree Traversal</string>
     <string name="ptt_desc">See the preorder traversal of a tree in action.</string>
     <string name="itt_title">Inorder Tree Traversal</string>
@@ -31,6 +33,8 @@
     <string name="pott_desc">See the postorder traversal of a tree in action.</string>
     <string name="mcgv_desc_text">Find demonstrations of algorithms run on common data structures
     like traversals on trees. Just tap play and watch!</string>
+    <string name="usagetracker_desc_text">Which simulations have you been looking at the most?
+    Check the usage tracker to find out!</string>
     <string name="title_activity_preorder_traversal_simulation">Preorder Tree Traversal</string>
     <string name="title_activity_inorder_traversal_simulation">Inorder Tree Traversal</string>
     <string name="title_activity_postorder_traversal_simulation">Postorder Tree Traversal</string>
