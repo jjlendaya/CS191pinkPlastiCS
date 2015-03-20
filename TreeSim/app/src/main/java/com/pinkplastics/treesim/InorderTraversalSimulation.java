@@ -76,7 +76,7 @@ public class InorderTraversalSimulation extends ActionBarActivity {
      @Override
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
-          setContentView(R.layout.activity_inorder_traversal_simulation);
+          setContentView(R.layout.treetraversal);
 
           FrameLayout fl = (FrameLayout) findViewById(R.id.NodeLayout);
           Button btn = new Button(this);

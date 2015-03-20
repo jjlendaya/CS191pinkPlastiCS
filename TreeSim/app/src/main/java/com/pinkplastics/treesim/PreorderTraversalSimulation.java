@@ -76,8 +76,10 @@ public class PreorderTraversalSimulation extends ActionBarActivity {
      @Override
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
-          setContentView(R.layout.activity_preorder_traversal_simulation);
+          setContentView(R.layout.treetraversal);
+          //ViewGroup layout = (ViewGroup)findViewById(R.id.activity_preorder_layout);
 
+          //layout.addView(fl);
           FrameLayout fl = (FrameLayout) findViewById(R.id.NodeLayout);
           Button btn = new Button(this);
           FrameLayout.LayoutParams btnParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -85,15 +87,16 @@ public class PreorderTraversalSimulation extends ActionBarActivity {
           btn.setLayoutParams(btnParams);
 
           btn.setText("Play");
-          fl.addView(btn);
 
+          fl.addView(btn);
+          /*
           fl.setOnClickListener(
                   new View.OnClickListener() {
                        public void onClick(View v) {
                             preorderTraversal();
                        }
                   }
-          );
+          );*/
      }
 
 
