@@ -566,7 +566,13 @@ public class LinkedListSimulation extends ActionBarActivity {
      */
 
      public LinearLayout linkedListAdd(MyLinkedList linkedList, int data, int index) {
-          if (index >= linkedList.getSize() || index < 0 || data < 0 || data > 99) Toast.makeText(getApplicationContext(), "I kenat", Toast.LENGTH_LONG).show();
+          if (index >= linkedList.getSize() || index < 0 || data < 0 || data > 99) {
+               Toast toast = Toast.makeText(getApplicationContext(), "I kenat", Toast.LENGTH_LONG);
+               LinearLayout toastLayout = (LinearLayout) toast.getView();
+               TextView toastTV = (TextView) toastLayout.getChildAt(0);
+               toastTV.setTextSize(30);
+               toast.show();
+          }
           else linkedList.add(data,index);
           return createLinkedList(linkedList);
      }
@@ -584,7 +590,13 @@ public class LinkedListSimulation extends ActionBarActivity {
      */
 
      public LinearLayout linkedListDelete(MyLinkedList linkedList, int index) {
-          if (index == linkedList.getSize()-1) Toast.makeText(getApplicationContext(), "I kenat", Toast.LENGTH_LONG).show();
+          if (index == linkedList.getSize()-1) {
+               Toast toast = Toast.makeText(getApplicationContext(), "I kenat", Toast.LENGTH_LONG);
+               LinearLayout toastLayout = (LinearLayout) toast.getView();
+               TextView toastTV = (TextView) toastLayout.getChildAt(0);
+               toastTV.setTextSize(30);
+               toast.show();
+          }
           else linkedList.delete(index);
           return createLinkedList(linkedList);
      }

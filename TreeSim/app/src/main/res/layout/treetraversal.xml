@@ -368,7 +368,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:textSize="11sp"
+        android:textSize="@dimen/tap_reminder_text_size"
         android:text="@string/tap_play_reminder"/>
 
 

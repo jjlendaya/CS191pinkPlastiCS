@@ -34,14 +34,14 @@
 
     <TextView
         android:id="@+id/itt_description"
-        android:layout_width="260sp"
+        android:layout_width="@dimen/page_description_width"
         android:layout_height="wrap_content"
         android:layout_below="@id/itt_screen_name"
         android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:gravity="center_horizontal"
-        android:textSize="14sp"
+        android:textSize="@dimen/page_description_text"
         android:text="@string/itt_desc"/>
 
     <TextView
@@ -52,7 +52,7 @@
         android:paddingTop="20dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:textSize="11sp"
+        android:textSize="@dimen/tap_reminder_text_size"
         android:text="@string/tap_reminder"/>
 
 </RelativeLayout>
