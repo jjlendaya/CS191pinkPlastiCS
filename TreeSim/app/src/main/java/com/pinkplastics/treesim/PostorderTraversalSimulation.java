@@ -79,6 +79,7 @@ public class PostorderTraversalSimulation extends ActionBarActivity {
           setContentView(R.layout.treetraversal);
 
           FrameLayout fl = (FrameLayout) findViewById(R.id.NodeLayout);
+          /*
           Button btn = new Button(this);
           FrameLayout.LayoutParams btnParams = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
           btnParams.setMargins(0,0,0,0);
@@ -86,7 +87,7 @@ public class PostorderTraversalSimulation extends ActionBarActivity {
 
           btn.setText("Play");
           fl.addView(btn);
-
+          */
           fl.setOnClickListener(
                new View.OnClickListener() {
                     public void onClick(View v) {

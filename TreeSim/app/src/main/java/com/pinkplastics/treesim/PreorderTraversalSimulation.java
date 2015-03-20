@@ -81,22 +81,20 @@ public class PreorderTraversalSimulation extends ActionBarActivity {
 
           //layout.addView(fl);
           FrameLayout fl = (FrameLayout) findViewById(R.id.NodeLayout);
-          Button btn = new Button(this);
+          /*Button btn = new Button(this);
           FrameLayout.LayoutParams btnParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
           btnParams.setMargins(0,0,0,0);
           btn.setLayoutParams(btnParams);
 
           btn.setText("Play");
-
-          fl.addView(btn);
-          /*
+          */
           fl.setOnClickListener(
                   new View.OnClickListener() {
                        public void onClick(View v) {
                             preorderTraversal();
                        }
                   }
-          );*/
+          );
      }
 
 

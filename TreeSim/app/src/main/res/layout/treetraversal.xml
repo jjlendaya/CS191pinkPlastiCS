@@ -363,35 +363,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_gravity="center_horizontal">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Preorder"
-            android:onClick="preorderTraversal"
-            android:layout_margin="30dp"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Inorder"
-            android:onClick="inorderTraversal"
-            android:layout_margin="30dp"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Postorder"
-            android:onClick="postorderTraversal"
-            />
-    </LinearLayout>
+
 
 </FrameLayout>
 
