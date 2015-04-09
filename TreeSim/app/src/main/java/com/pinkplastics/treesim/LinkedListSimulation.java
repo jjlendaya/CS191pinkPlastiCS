@@ -80,6 +80,14 @@ public class LinkedListSimulation extends ActionBarActivity {
      final int TRAVERSAL_FOUND = 3;
      final int animDuration = 1000;
 
+     final int NODE_SIZE = 152;
+     final int SHORT_ARROW_SIZE = 77;
+     final int LONG_ARROW_SIZE = 604;
+     final float NODE_TEXT = 20.25f;
+     final int NODE_TEXT_TMARGIN = 8;
+     final int NODE_TEXT_LMARGIN = 18;
+
+
      private static final String SEARCH_NODE_TAG = "search";
      MyLinkedList ll;
 
@@ -162,7 +170,7 @@ public class LinkedListSimulation extends ActionBarActivity {
           LinearLayout.LayoutParams sbParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
           //sbParams.setMargins(0, 650, 0, 0);
           searchButton.setText("Search\n(v)");
-          searchButton.setTextSize(15);
+          searchButton.setTextSize(10);
           searchButton.setWidth(100);
           searchButton.setHeight(100);
           //sbParams.gravity = Gravity.CENTER_VERTICAL;
@@ -180,7 +188,7 @@ public class LinkedListSimulation extends ActionBarActivity {
           //abParams.setMargins(250, 650, 0, 0);
           //abParams.gravity = Gravity.CENTER_VERTICAL;
           addButton.setText("Add\n(i,v)");
-          addButton.setTextSize(15);
+          addButton.setTextSize(10);
           addButton.setWidth(100);
           addButton.setHeight(100);
           addButton.setLayoutParams(abParams);
@@ -205,7 +213,7 @@ public class LinkedListSimulation extends ActionBarActivity {
           LinearLayout.LayoutParams dbParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
           //dbParams.setMargins(500, 650, 0, 0);
           deleteButton.setText("Delete\n(i)");
-          deleteButton.setTextSize(15);
+          deleteButton.setTextSize(10);
           //dbParams.gravity = Gravity.CENTER_VERTICAL;
           deleteButton.setWidth(100);
           deleteButton.setHeight(100);
@@ -230,7 +238,7 @@ public class LinkedListSimulation extends ActionBarActivity {
           //dbParams.setMargins(500, 650, 0, 0);
           cbParams.gravity = Gravity.CENTER_VERTICAL;
           clearButton.setText("Clear");
-          clearButton.setTextSize(15);
+          clearButton.setTextSize(10);
           clearButton.setWidth(100);
           clearButton.setHeight(100);
           clearButton.setLayoutParams(cbParams);
@@ -254,7 +262,7 @@ public class LinkedListSimulation extends ActionBarActivity {
           //dbParams.setMargins(500, 650, 0, 0);
           dfParams.gravity = Gravity.CENTER_VERTICAL;
           defaultButton.setText("Default");
-          defaultButton.setTextSize(15);
+          defaultButton.setTextSize(10);
           defaultButton.setWidth(100);
           defaultButton.setHeight(100);
           defaultButton.setLayoutParams(dfParams);
@@ -384,7 +392,7 @@ public class LinkedListSimulation extends ActionBarActivity {
                          long_arrow.setImageDrawable(this.getResources().getDrawable(R.drawable.linked_list_long_arrow));
                          long_arrow.setAdjustViewBounds(true);
                          long_arrow.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                         long_arrow.setMaxWidth(480);
+                         long_arrow.setMaxWidth(LONG_ARROW_SIZE);
                          outerLayout.addView(long_arrow);
                          outerLayout.addView(createInnerLinkedListLayout());
                          j+=2;
@@ -395,7 +403,7 @@ public class LinkedListSimulation extends ActionBarActivity {
                     lambda.setImageDrawable(this.getResources().getDrawable(R.drawable.linked_list_lambda));
                     lambda.setAdjustViewBounds(true);
                     lambda.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                    lambda.setMaxWidth(120);
+                    lambda.setMaxWidth(NODE_SIZE);
                     LinearLayout innerLayout = (LinearLayout) outerLayout.getChildAt(j);
                     innerLayout.addView(lambda);
                }
@@ -403,7 +411,7 @@ public class LinkedListSimulation extends ActionBarActivity {
           return outerLayout;
      }
 
-    /*
+     /*
           Name: createInnerLinkedListLayout
           Creation Date: 03/19/2015
           Purpose: Creates a new horizontal LinearLayout with default settings
@@ -426,7 +434,7 @@ public class LinkedListSimulation extends ActionBarActivity {
           return innerLayout;
      }
 
-    /*
+     /*
           Name: createLinkedListNode
           Creation Date: 03/19/2015
           Purpose: Creates a new linked list node with an ImageView and a TextView in a FrameLayout
@@ -443,22 +451,22 @@ public class LinkedListSimulation extends ActionBarActivity {
           if (data < 10) text.insert(0,"0");
           TextView textView = new TextView(this);
           textView.setText(text.toString());
-          textView.setTextSize(25);
+          textView.setTextSize(NODE_TEXT);
           textView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-          textView.setPadding(20,5,0,0);
+          textView.setPadding(NODE_TEXT_LMARGIN,NODE_TEXT_TMARGIN,0,0);
 
           ImageView imageView = new ImageView(this);
           imageView.setImageDrawable(this.getResources().getDrawable(R.drawable.linked_list_node));
           imageView.setAdjustViewBounds(true);
           imageView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-          imageView.setMaxWidth(120);
+          imageView.setMaxWidth(NODE_SIZE);
 
           frameLayout.addView(imageView);
           frameLayout.addView(textView);
           return frameLayout;
      }
 
-    /*
+     /*
           Name: addLinkedListNode
           Creation Date: 03/19/2015
           Purpose: Adds node to horizontal Linear Layout
@@ -477,12 +485,12 @@ public class LinkedListSimulation extends ActionBarActivity {
                short_arrow.setImageDrawable(this.getResources().getDrawable(R.drawable.linked_list_arrow));
                short_arrow.setAdjustViewBounds(true);
                short_arrow.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-               short_arrow.setMaxWidth(60);
+               short_arrow.setMaxWidth(SHORT_ARROW_SIZE);
                innerLayout.addView(short_arrow);
           }
      }
 
-    /*
+     /*
           Name: linkedListSearch
           Creation Date: 03/13/2015
           Purpose: -
@@ -553,7 +561,7 @@ public class LinkedListSimulation extends ActionBarActivity {
           }
      }
 
-    /*
+     /*
           Name: linkedListAdd
           Creation Date: 03/19/2015
           Purpose: Adds node at specified index
@@ -567,17 +575,20 @@ public class LinkedListSimulation extends ActionBarActivity {
 
      public LinearLayout linkedListAdd(MyLinkedList linkedList, int data, int index) {
           if (index >= linkedList.getSize() || index < 0 || data < 0 || data > 99) {
-               Toast toast = Toast.makeText(getApplicationContext(), "I kenat", Toast.LENGTH_LONG);
+               String message;
+               if (index >= linkedList.getSize() || index< 0) message = "Invalid index";
+               else message = "Invalid data";
+               Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
                LinearLayout toastLayout = (LinearLayout) toast.getView();
                TextView toastTV = (TextView) toastLayout.getChildAt(0);
-               toastTV.setTextSize(30);
+               toastTV.setTextSize(15);
                toast.show();
           }
           else linkedList.add(data,index);
           return createLinkedList(linkedList);
      }
 
-    /*
+     /*
           Name: linkedListDelete
           Creation Date: 03/19/2015
           Purpose: Deletes node at specified index
@@ -590,18 +601,15 @@ public class LinkedListSimulation extends ActionBarActivity {
      */
 
      public LinearLayout linkedListDelete(MyLinkedList linkedList, int index) {
-          if (index == linkedList.getSize()-1) {
-               Toast toast = Toast.makeText(getApplicationContext(), "I kenat", Toast.LENGTH_LONG);
+          if (index == linkedList.getSize()-1 || index >= linkedList.getSize() || index < 0) {
+               Toast toast = Toast.makeText(getApplicationContext(), "Invalid index", Toast.LENGTH_LONG);
                LinearLayout toastLayout = (LinearLayout) toast.getView();
                TextView toastTV = (TextView) toastLayout.getChildAt(0);
-               toastTV.setTextSize(30);
+               toastTV.setTextSize(15);
                toast.show();
           }
           else linkedList.delete(index);
           return createLinkedList(linkedList);
      }
-
-
-
 
 }
