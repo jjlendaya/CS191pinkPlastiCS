@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context="com.pinkplastics.treesim.DemoChoice"
-                android:id="@+id/activity_demo_choice_pager">
+                android:id="@id/demos_choice_pager">
 
 
 </android.support.v4.view.ViewPager>

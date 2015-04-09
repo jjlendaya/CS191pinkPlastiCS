@@ -63,7 +63,7 @@ public class BuilderChoice extends ActionBarActivity {
 
           setTitle("Choose A Builder");
 
-          mViewPager = (ViewPager) findViewById(R.id.builder_choice_pager);
+          mViewPager = (ViewPager) findViewById(R.id.builders_choice_pager);
           mBuilderScreenPagerAdapter = new BuilderScreenPagerAdapter(getSupportFragmentManager());
 
           mViewPager.setAdapter(mBuilderScreenPagerAdapter);

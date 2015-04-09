@@ -79,9 +79,7 @@ public class PreorderTraversalSimulation extends ActionBarActivity {
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.treetraversal);
-          //ViewGroup layout = (ViewGroup)findViewById(R.id.activity_preorder_layout);
 
-          //layout.addView(fl);
           FrameLayout fl = (FrameLayout) findViewById(R.id.NodeLayout);
 
           Typeface heroFont = Typeface.createFromAsset(getAssets(), "fonts/hero.otf");

@@ -122,13 +122,13 @@ public class PreorderTraversalScreen extends Fragment {
           View view = inflater.inflate(R.layout.fragment_preorder_traversal_screen, container, false);
 
           Typeface heroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/hero.otf");
-          TextView builders = (TextView) view.findViewById(R.id.ptt_screen_name);
+          TextView builders = (TextView) view.findViewById(R.id.demos_ptt_screen_name);
           builders.setTypeface(heroFont);
 
-          TextView desc = (TextView) view.findViewById(R.id.ptt_description);
+          TextView desc = (TextView) view.findViewById(R.id.demos_ptt_description);
           desc.setTypeface(heroFont);
 
-          TextView reminder = (TextView) view.findViewById(R.id.ptt_tapscreen);
+          TextView reminder = (TextView) view.findViewById(R.id.demos_ptt_tapscreen);
           reminder.setTypeface(heroFont);
 
           view.setOnClickListener(new View.OnClickListener() {

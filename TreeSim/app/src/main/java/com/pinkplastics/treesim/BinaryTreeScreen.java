@@ -123,13 +123,13 @@ public class BinaryTreeScreen extends Fragment {
           View view = inflater.inflate(R.layout.fragment_binary_tree_screen, container, false);
 
           Typeface heroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/hero.otf");
-          TextView builders = (TextView) view.findViewById(R.id.bt_screen_name);
+          TextView builders = (TextView) view.findViewById(R.id.builders_bt_screen_name);
           builders.setTypeface(heroFont);
 
-          TextView desc = (TextView) view.findViewById(R.id.bt_description);
+          TextView desc = (TextView) view.findViewById(R.id.builders_bt_description);
           desc.setTypeface(heroFont);
 
-          TextView reminder = (TextView) view.findViewById(R.id.bt_tapscreen);
+          TextView reminder = (TextView) view.findViewById(R.id.builders_bt_tapscreen);
           reminder.setTypeface(heroFont);
 
           view.setOnClickListener(new View.OnClickListener() {

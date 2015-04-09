@@ -123,13 +123,13 @@ public class LinkedListScreen extends Fragment {
           View view = inflater.inflate(R.layout.fragment_linked_list_screen, container, false);
 
           Typeface heroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/hero.otf");
-          TextView builders = (TextView) view.findViewById(R.id.ll_screen_name);
+          TextView builders = (TextView) view.findViewById(R.id.builders_ll_screen_name);
           builders.setTypeface(heroFont);
 
-          TextView desc = (TextView) view.findViewById(R.id.ll_description);
+          TextView desc = (TextView) view.findViewById(R.id.builders_ll_description);
           desc.setTypeface(heroFont);
 
-          TextView reminder = (TextView) view.findViewById(R.id.ll_tapscreen);
+          TextView reminder = (TextView) view.findViewById(R.id.builders_ll_tapscreen);
           reminder.setTypeface(heroFont);
 
           view.setOnClickListener(new View.OnClickListener() {

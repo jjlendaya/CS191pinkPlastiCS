@@ -72,9 +72,15 @@ public class TreeSimAnimation {
           AnimationDrawable nodeAnimation = new AnimationDrawable();
 
           nodeAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_node), duration);
-          if (mode == SEARCH_NODE) nodeAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_node_selected), animDuration);
-          else if (mode == FOUND_NODE) nodeAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_node_found), animDuration*(3/2));
-          nodeAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_node), animDuration);
+          if (mode == SEARCH_NODE) {
+               nodeAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_node_selected), animDuration);
+               nodeAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_node), animDuration);
+          }
+          else if (mode == FOUND_NODE) {
+               nodeAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_node_found), animDuration);
+               nodeAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_node), animDuration*(3/2));
+          }
+
           nodeAnimation.setOneShot(true);
 
           return nodeAnimation;
@@ -199,6 +205,11 @@ public class TreeSimAnimation {
           return traversalAnimation;
      }
 
-
+     public static AnimationDrawable animateTraversalPlayStop(Context context, int duration) {
+          AnimationDrawable traversalAnimation = new AnimationDrawable();
+          traversalAnimation.addFrame(context.getResources().getDrawable(R.drawable.traversal_play), duration);
+          traversalAnimation.addFrame(context.getResources().getDrawable(R.drawable.traversal_stop), animDuration);
+          return traversalAnimation;
+     }
 
 }

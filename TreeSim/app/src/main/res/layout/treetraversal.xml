@@ -21,7 +21,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:layout_gravity="center_horizontal"
-                      android:layout_marginTop="50dp">
+                      android:layout_marginTop="25dp">
 
             <ImageView
                 android:id="@+id/traversal_1"
@@ -34,7 +34,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="40.5dp"
+                android:maxWidth="@dimen/traversal_1l_blank"
                 android:src="@drawable/traversal_blank_l1"
                 android:adjustViewBounds="true"
                 android:layout_gravity="center_horizontal"/>
@@ -53,7 +53,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:layout_gravity="center_horizontal"
-                      android:layout_marginTop="38dp">
+                      android:layout_marginTop="19dp">
 
             <ImageView
                 android:id="@+id/traversal_3"
@@ -67,7 +67,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="40dp"
+                android:maxWidth="@dimen/traversal_2l_blank"
                 android:src="@drawable/traversal_blank_l2a"
                 android:adjustViewBounds="true"
                 android:layout_gravity="center_horizontal"/>
@@ -84,7 +84,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="313dp"
+                android:maxWidth="156dp"
                 android:src="@drawable/traversal_blank_l2b"
                 android:adjustViewBounds="true"
                 android:layout_gravity="center_horizontal"/>
@@ -104,7 +104,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:layout_gravity="center_horizontal"
-                      android:layout_marginTop="39dp">
+                      android:layout_marginTop="20dp">
 
             <ImageView
                 android:id="@+id/traversal_6"
@@ -118,7 +118,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="90dp"
+                android:maxWidth="45dp"
                 android:src="@drawable/traversal_blank_l3a"
                 android:adjustViewBounds="true"
                 android:layout_gravity="center_horizontal"/>
@@ -135,7 +135,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="40.5dp"
+                android:maxWidth="20.25dp"
                 android:src="@drawable/traversal_blank_l3gen"
                 android:adjustViewBounds="true"
                 android:layout_gravity="center_horizontal"/>
@@ -152,7 +152,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="271dp"
+                android:maxWidth="135.5dp"
                 android:src="@drawable/traversal_blank_l3b"
                 android:adjustViewBounds="true"
                 android:layout_gravity="center_horizontal"/>
@@ -186,7 +186,7 @@
             android:layout_gravity="center_horizontal"/>
 
         <LinearLayout
-            android:layout_marginTop="37dp"
+            android:layout_marginTop="19dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -232,7 +232,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="31.5dp"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -293,7 +293,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -302,7 +302,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
+                android:maxWidth="29dp"
                 android:src="@drawable/traversal_blank_node"
                 android:adjustViewBounds="true"/>
 
@@ -333,7 +333,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
+                android:maxWidth="45dp"
                 android:src="@drawable/traversal_blank_node"
                 android:adjustViewBounds="true"/>
 
@@ -371,7 +371,15 @@
         android:textSize="@dimen/tap_reminder_text_size"
         android:text="@string/tap_play_reminder"/>
 
-
+    <ImageView
+        android:id="@+id/traversal_play_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/traversal_play"
+        android:maxWidth="@dimen/traversal_play_pause"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"/>
 
 </FrameLayout>
 

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name = "short_arrow"> 60dp </dimen>
-    <dimen name = "node_obj"> 120dp </dimen>
-    <dimen name = "long_arrow"> 480dp </dimen>
-    <dimen name = "text"> 30dp </dimen>
-    <dimen name = "text_lmargin"> 20dp </dimen>
+    <dimen name = "short_arrow"> 39dp </dimen>
+    <dimen name = "node_obj"> 78dp </dimen>
+    <dimen name = "long_arrow"> 312dp </dimen>
+    <dimen name = "node_text"> 19.5dp </dimen>
+    <dimen name = "node_text_lmargin"> 13dp </dimen>
 
-    <dimen name = "traversal_node"> 90dp </dimen>
-    <dimen name = "traversal_1l"> 140.5dp </dimen>
-    <dimen name = "traversal_2l"> 51.5dp </dimen>
-    <dimen name = "traversal_3l"> 27dp </dimen>
+    <dimen name = "traversal_node"> 45dp </dimen>
+    <dimen name = "traversal_1l"> 70.25dp </dimen>
+    <dimen name = "traversal_1l_blank"> 20.25dp </dimen>
+    <dimen name = "traversal_2l"> 25.75dp </dimen>
+    <dimen name = "traversal_2l_blank"> 20dp </dimen>
+    <dimen name = "traversal_3l"> 13.5dp </dimen>
+    <dimen name = "traversal_play_pause"> 150dp </dimen>
 
 </resources>
