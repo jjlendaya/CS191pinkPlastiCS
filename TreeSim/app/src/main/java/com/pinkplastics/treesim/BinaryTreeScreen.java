@@ -63,6 +63,7 @@ import android.widget.TextView;
  */
 public class BinaryTreeScreen extends Fragment {
 
+
      private static final String ARG_POSITION = "position";
      private String mPosition;
 
@@ -135,6 +136,10 @@ public class BinaryTreeScreen extends Fragment {
           view.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
+                    FileHandler fh = new FileHandler(getActivity().getApplicationContext());
+                    UsageDAO dao = new UsageDAO(fh);
+                    dao.addToSimulation(BuilderChoice.BUILDER_NAME_BINARY_TREE);
+                    dao.saveToFile();
                     Intent intent = new Intent(getActivity(), BinaryTreeSimulation.class);
                     startActivity(intent);
 

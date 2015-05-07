@@ -54,6 +54,9 @@ import android.view.View;
 
 public class DemoChoice extends ActionBarActivity {
 
+     public static final String DEMO_NAME_PREORDER_TRAVERSAL = "Preorder.Traversal.Demo";
+     public static final String DEMO_NAME_INORDER_TRAVERSAL = "Inorder.Traversal.Demo";
+     public static final String DEMO_NAME_POSTORDER_TRAVERSAL = "Postorder.Traversal.Demo";
      private ViewPager mViewPager;
      private DemoScreenPagerAdapter mScreenPagerAdapter;
 

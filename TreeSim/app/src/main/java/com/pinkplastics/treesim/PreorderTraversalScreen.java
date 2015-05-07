@@ -134,6 +134,10 @@ public class PreorderTraversalScreen extends Fragment {
           view.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
+                    FileHandler fh = new FileHandler(getActivity().getApplicationContext());
+                    UsageDAO dao = new UsageDAO(fh);
+                    dao.addToSimulation(DemoChoice.DEMO_NAME_PREORDER_TRAVERSAL);
+                    dao.saveToFile();
                     Intent intent = new Intent(getActivity(), PreorderTraversalSimulation.class);
                     startActivity(intent);
 

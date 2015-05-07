@@ -62,6 +62,7 @@ import android.widget.TextView;
  */
 public class InorderTraversalScreen extends Fragment {
 
+
      private static final String ARG_POSITION = "position";
      private String mPosition;
 
@@ -134,6 +135,10 @@ public class InorderTraversalScreen extends Fragment {
           view.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
+                    FileHandler fh = new FileHandler(getActivity().getApplicationContext());
+                    UsageDAO dao = new UsageDAO(fh);
+                    dao.addToSimulation(DemoChoice.DEMO_NAME_INORDER_TRAVERSAL);
+                    dao.saveToFile();
                     Intent intent = new Intent(getActivity(), InorderTraversalSimulation.class);
                     startActivity(intent);
 

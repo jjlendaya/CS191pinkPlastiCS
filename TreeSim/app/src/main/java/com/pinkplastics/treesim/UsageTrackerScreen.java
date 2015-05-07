@@ -45,6 +45,7 @@ Jeynald Endaya      2/11/15        Created the initial version of this screen.
 package com.pinkplastics.treesim;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -112,6 +113,14 @@ public class UsageTrackerScreen extends Fragment {
 
           TextView reminder = (TextView) view.findViewById(R.id.usagetracker_tapscreen);
           reminder.setTypeface(heroFont);
+
+          view.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), UsageTracker.class);
+                    startActivity(intent);
+               }
+          });
 
           return view;
      }

@@ -135,6 +135,10 @@ public class LinkedListScreen extends Fragment {
           view.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
+                    FileHandler fh = new FileHandler(getActivity().getApplicationContext());
+                    UsageDAO dao = new UsageDAO(fh);
+                    dao.addToSimulation(BuilderChoice.BUILDER_NAME_LINKED_LIST);
+                    dao.saveToFile();
                     Intent intent = new Intent(getActivity(), LinkedListSimulation.class);
                     startActivity(intent);
 

@@ -129,6 +129,10 @@ public class PostorderTraversalScreen extends Fragment {
           view.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
+                    FileHandler fh = new FileHandler(getActivity().getApplicationContext());
+                    UsageDAO dao = new UsageDAO(fh);
+                    dao.addToSimulation(DemoChoice.DEMO_NAME_POSTORDER_TRAVERSAL);
+                    dao.saveToFile();
                     Intent intent = new Intent(getActivity(), PostorderTraversalSimulation.class);
                     startActivity(intent);
 
