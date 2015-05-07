@@ -45,11 +45,14 @@ Jeynald Endaya      2/11/15        Created the initial version of this screen.
 package com.pinkplastics.treesim;
 
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -98,7 +101,28 @@ public class UsageTrackerScreen extends Fragment {
      public View onCreateView(LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
           // Inflate the layout for this fragment
-          return inflater.inflate(R.layout.fragment_usage_tracker_screen, container, false);
+
+          View view = inflater.inflate(R.layout.fragment_usage_tracker_screen, container, false);
+
+          Typeface heroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/hero.otf");
+          TextView builders = (TextView) view.findViewById(R.id.usagetracker_name);
+          builders.setTypeface(heroFont);
+
+          TextView desc = (TextView) view.findViewById(R.id.usagetracker_description);
+          desc.setTypeface(heroFont);
+
+          TextView reminder = (TextView) view.findViewById(R.id.usagetracker_tapscreen);
+          reminder.setTypeface(heroFont);
+
+          view.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), UsageTracker.class);
+                    startActivity(intent);
+               }
+          });
+
+          return view;
      }
 
 }

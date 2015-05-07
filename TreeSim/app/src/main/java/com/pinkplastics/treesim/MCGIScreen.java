@@ -124,13 +124,13 @@ public class MCGIScreen extends Fragment {
           View view = inflater.inflate(com.pinkplastics.treesim.R.layout.fragment_mcgiscreen, container, false);
 
           Typeface heroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/hero.otf");
-          TextView builders = (TextView) view.findViewById(com.pinkplastics.treesim.R.id.mcgi_name2);
+          TextView builders = (TextView) view.findViewById(R.id.main_mcgi_screen_name);
           builders.setTypeface(heroFont);
 
-          TextView desc = (TextView) view.findViewById(com.pinkplastics.treesim.R.id.mcgi_description);
+          TextView desc = (TextView) view.findViewById(R.id.main_mcgi_description);
           desc.setTypeface(heroFont);
 
-          TextView reminder = (TextView) view.findViewById(com.pinkplastics.treesim.R.id.mcgi_tapscreen);
+          TextView reminder = (TextView) view.findViewById(R.id.main_mcgi_tapscreen);
           reminder.setTypeface(heroFont);
 
           view.setOnClickListener(new View.OnClickListener() {

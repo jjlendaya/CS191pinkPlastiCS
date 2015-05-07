@@ -77,7 +77,7 @@ public class MainActivity extends ActionBarActivity {
           ab.setLogo(com.pinkplastics.treesim.R.drawable.ic_launcher);
           ab.setDisplayUseLogoEnabled(true);
 
-          mViewPager = (ViewPager) findViewById(com.pinkplastics.treesim.R.id.activity_main_pager);
+          mViewPager = (ViewPager) findViewById(com.pinkplastics.treesim.R.id.main_pager);
           mScreenPagerAdapter = new ScreenPagerAdapter(getSupportFragmentManager());
 
           mViewPager.setAdapter(mScreenPagerAdapter);

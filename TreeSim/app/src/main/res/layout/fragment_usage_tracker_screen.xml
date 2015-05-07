@@ -43,7 +43,7 @@
         android:text="@string/usagetracker_desc_text"/>
 
     <TextView
-        android:id="@+id/mcgv_tapscreen"
+        android:id="@+id/usagetracker_tapscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/usagetracker_description"

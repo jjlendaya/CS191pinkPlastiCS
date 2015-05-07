@@ -7,7 +7,7 @@
              tools:context="com.pinkplastics.treesim.PreorderTraversalScreen">
 
     <ImageView
-        android:id="@+id/itt_icon"
+        android:id="@id/demos_itt_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/demos_inorder_icon"
@@ -17,14 +17,14 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/itt_icon"
+        android:layout_above="@id/demos_itt_icon"
         android:layout_centerHorizontal="true"
         android:paddingBottom="30dp"
         android:src="@drawable/demos_choose"/>
 
     <TextView
-        android:id="@+id/itt_screen_name"
-        android:layout_below="@id/itt_icon"
+        android:id="@id/demos_itt_screen_name"
+        android:layout_below="@id/demos_itt_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -33,10 +33,10 @@
         android:textSize="26sp"/>
 
     <TextView
-        android:id="@+id/itt_description"
+        android:id="@id/demos_itt_description"
         android:layout_width="@dimen/page_description_width"
         android:layout_height="wrap_content"
-        android:layout_below="@id/itt_screen_name"
+        android:layout_below="@id/demos_itt_screen_name"
         android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
@@ -45,10 +45,10 @@
         android:text="@string/itt_desc"/>
 
     <TextView
-        android:id="@+id/itt_tapscreen"
+        android:id="@id/demos_itt_tapscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/itt_description"
+        android:layout_below="@id/demos_itt_description"
         android:paddingTop="20dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"

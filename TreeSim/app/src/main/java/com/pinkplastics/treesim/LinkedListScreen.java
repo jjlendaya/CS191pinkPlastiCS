@@ -123,18 +123,22 @@ public class LinkedListScreen extends Fragment {
           View view = inflater.inflate(R.layout.fragment_linked_list_screen, container, false);
 
           Typeface heroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/hero.otf");
-          TextView builders = (TextView) view.findViewById(R.id.ll_screen_name);
+          TextView builders = (TextView) view.findViewById(R.id.builders_ll_screen_name);
           builders.setTypeface(heroFont);
 
-          TextView desc = (TextView) view.findViewById(R.id.ll_description);
+          TextView desc = (TextView) view.findViewById(R.id.builders_ll_description);
           desc.setTypeface(heroFont);
 
-          TextView reminder = (TextView) view.findViewById(R.id.ll_tapscreen);
+          TextView reminder = (TextView) view.findViewById(R.id.builders_ll_tapscreen);
           reminder.setTypeface(heroFont);
 
           view.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
+                    FileHandler fh = new FileHandler(getActivity().getApplicationContext());
+                    UsageDAO dao = new UsageDAO(fh);
+                    dao.addToSimulation(BuilderChoice.BUILDER_NAME_LINKED_LIST);
+                    dao.saveToFile();
                     Intent intent = new Intent(getActivity(), LinkedListSimulation.class);
                     startActivity(intent);
 
