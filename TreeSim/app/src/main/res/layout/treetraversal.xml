@@ -176,14 +176,32 @@
         android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/traversal_A"
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxWidth="@dimen/traversal_node"
-            android:src="@drawable/traversal_node_visited"
-            android:adjustViewBounds="true"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/traversal_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="@dimen/traversal_node"
+                android:src="@drawable/traversal_node_visited"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/traversal_A_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp"
+                android:textSize="15dp"
+                android:textColor="@color/traversal_gray"/>
+
+        </FrameLayout>
+
 
         <LinearLayout
             android:layout_marginTop="19dp"
@@ -192,13 +210,31 @@
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/traversal_B"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_node_visited"
-                android:adjustViewBounds="true"/>
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/traversal_B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/traversal_node"
+                    android:src="@drawable/traversal_node_visited"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/traversal_B_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/traversal_gray"/>
+
+            </FrameLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -221,13 +257,31 @@
                 android:src="@drawable/traversal_blank_node"
                 android:adjustViewBounds="true"/>
 
-            <ImageView
-                android:id="@+id/traversal_C"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_node_visited"
-                android:adjustViewBounds="true"/>
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/traversal_C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/traversal_node"
+                    android:src="@drawable/traversal_node_visited"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/traversal_C_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/traversal_gray"/>
+
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -238,12 +292,70 @@
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/traversal_D"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/traversal_node"
+                    android:src="@drawable/traversal_node_visited"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/traversal_D_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="D"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/traversal_gray"/>
+
+            </FrameLayout>
+
             <ImageView
-                android:id="@+id/traversal_D"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_node_visited"
+                android:src="@drawable/traversal_blank_node"
+                android:adjustViewBounds="true"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/traversal_E"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/traversal_node"
+                    android:src="@drawable/traversal_node_visited"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/traversal_E_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/traversal_gray"/>
+
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="@dimen/traversal_node"
+                android:src="@drawable/traversal_blank_node"
                 android:adjustViewBounds="true"/>
 
             <ImageView
@@ -254,41 +366,37 @@
                 android:adjustViewBounds="true"/>
 
             <ImageView
-                android:id="@+id/traversal_E"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_node_visited"
-                android:adjustViewBounds="true"/>
-
-            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxWidth="@dimen/traversal_node"
                 android:src="@drawable/traversal_blank_node"
                 android:adjustViewBounds="true"/>
 
-            <ImageView
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_blank_node"
-                android:adjustViewBounds="true"/>
+                android:layout_gravity="center_horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_blank_node"
-                android:adjustViewBounds="true"/>
+                <ImageView
+                    android:id="@+id/traversal_F"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/traversal_node"
+                    android:src="@drawable/traversal_node_visited"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_horizontal"/>
 
-            <ImageView
-                android:id="@+id/traversal_F"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_node_visited"
-                android:adjustViewBounds="true"/>
+                <TextView
+                    android:id="@+id/traversal_F_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="F"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/traversal_gray"/>
+
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -306,29 +414,83 @@
                 android:src="@drawable/traversal_blank_node"
                 android:adjustViewBounds="true"/>
 
-            <ImageView
-                android:id="@+id/traversal_G"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_node_visited"
-                android:adjustViewBounds="true"/>
+                android:layout_gravity="center_horizontal">
 
-            <ImageView
-                android:id="@+id/traversal_H"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_node_visited"
-                android:adjustViewBounds="true"/>
+                <ImageView
+                    android:id="@+id/traversal_G"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/traversal_node"
+                    android:src="@drawable/traversal_node_visited"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_horizontal"/>
 
-            <ImageView
-                android:id="@+id/traversal_I"
+                <TextView
+                    android:id="@+id/traversal_G_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="G"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/traversal_gray"/>
+
+            </FrameLayout>
+
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_node_visited"
-                android:adjustViewBounds="true"/>
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/traversal_H"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/traversal_node"
+                    android:src="@drawable/traversal_node_visited"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/traversal_H_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="H"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/traversal_gray"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/traversal_I"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/traversal_node"
+                    android:src="@drawable/traversal_node_visited"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/traversal_I_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/traversal_gray"/>
+
+            </FrameLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -344,13 +506,31 @@
                 android:src="@drawable/traversal_blank_node"
                 android:adjustViewBounds="true"/>
 
-            <ImageView
-                android:id="@+id/traversal_J"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="@dimen/traversal_node"
-                android:src="@drawable/traversal_node_visited"
-                android:adjustViewBounds="true"/>
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/traversal_J"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/traversal_node"
+                    android:src="@drawable/traversal_node_visited"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/traversal_J_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="J"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/traversal_gray"/>
+
+            </FrameLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -363,14 +543,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/traversal_tapscreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:textSize="@dimen/tap_reminder_text_size"
-        android:text="@string/tap_play_reminder"/>
-
     <ImageView
         android:id="@+id/traversal_play_stop"
         android:layout_width="wrap_content"
@@ -379,7 +551,23 @@
         android:src="@drawable/traversal_play"
         android:maxWidth="@dimen/traversal_play_pause"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="250dp"/>
+        android:layout_marginTop="300dp"/>
+
+    <TextView
+        android:id="@+id/traversal_tapscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:textSize="@dimen/tap_reminder_text_size"
+        android:text="@string/tap_play_reminder"/>
+
+    <TextView
+        android:id="@+id/traversal_found_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:text="Found:  "
+        android:textSize="20dp"
+        android:layout_marginTop="230dp" />
 
 </FrameLayout>
-

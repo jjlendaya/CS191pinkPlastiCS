@@ -46,6 +46,9 @@ package com.pinkplastics.treesim;
 
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -56,9 +59,9 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-
 
 public class InorderTraversalSimulation extends ActionBarActivity {
 
@@ -74,6 +77,8 @@ public class InorderTraversalSimulation extends ActionBarActivity {
 
      final int animDuration = 1000;
 
+     boolean traversal_playing = false;
+     //boolean from_stop = false;
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +109,7 @@ public class InorderTraversalSimulation extends ActionBarActivity {
           return true;
      }
 
-     @Override
+      @Override
      public boolean onOptionsItemSelected(MenuItem item) {
           // Handle action bar item clicks here. The action bar will
           // automatically handle clicks on the Home/Up button, so long
@@ -120,7 +125,7 @@ public class InorderTraversalSimulation extends ActionBarActivity {
      }
 
 
-    /*
+     /*
           Name: inorderTraversal
           Creation Date: 02/25/2015
           Purpose: Demonstrates the inorder tree traversal using animations and a default tree
@@ -134,6 +139,7 @@ public class InorderTraversalSimulation extends ActionBarActivity {
      public void inorderTraversal() {
           int currentDuration = animDuration;
           ArrayList<ImageView> imageViews = new ArrayList<ImageView>();
+          final ArrayList<TextView> textViews = new ArrayList<TextView>();
           int node = 0;
           int line1l = 1;
           int line1r = 2;
@@ -197,30 +203,172 @@ public class InorderTraversalSimulation extends ActionBarActivity {
           imageViews.add((ImageView) findViewById(R.id.traversal_5));
           imageViews.add((ImageView) findViewById(R.id.traversal_2));
 
-          for (int i = 0; i<imageViews.size(); i++) {
-               ImageView thisView = imageViews.get(i);
-               AnimationDrawable animation;
-               if (mode[i] == TRAVERSAL_VISITED) {
-                    if (type[i] == node)
-                         animation = TreeSimAnimation.animateTraversalNode(this, mode[i], currentDuration);
-                    else if (type[i] == line1l)
-                         animation = TreeSimAnimation.animateTraversalLine1L(this, mode[i], currentDuration);
-                    else if (type[i] == line2l)
-                         animation = TreeSimAnimation.animateTraversalLine2L(this, mode[i], currentDuration);
-                    else if (type[i] == line3l)
-                         animation = TreeSimAnimation.animateTraversalLine3L(this, mode[i], currentDuration);
-                    else if (type[i] == line1r)
-                         animation = TreeSimAnimation.animateTraversalLine1R(this, mode[i], currentDuration);
-                    else if (type[i] == line2r)
-                         animation = TreeSimAnimation.animateTraversalLine2R(this, mode[i], currentDuration);
-                    else
-                         animation = TreeSimAnimation.animateTraversalLine3R(this, mode[i], currentDuration);
-                    currentDuration += animDuration;
-                    thisView.setImageDrawable(animation);
-                    animation.start();
-               }
+          textViews.add((TextView) findViewById(R.id.traversal_D_text));
+          textViews.add((TextView) findViewById(R.id.traversal_G_text));
+          textViews.add((TextView) findViewById(R.id.traversal_B_text));
+          textViews.add((TextView) findViewById(R.id.traversal_H_text));
+          textViews.add((TextView) findViewById(R.id.traversal_E_text));
+          textViews.add((TextView) findViewById(R.id.traversal_I_text));
+          textViews.add((TextView) findViewById(R.id.traversal_A_text));
+          textViews.add((TextView) findViewById(R.id.traversal_C_text));
+          textViews.add((TextView) findViewById(R.id.traversal_J_text));
+          textViews.add((TextView) findViewById(R.id.traversal_F_text));
+
+          final TextView found_list = (TextView) findViewById(R.id.traversal_found_list);
+          found_list.setText("Found:  ");
+
+          for (int i = 0; i < textViews.size(); i++) {
+               final TextView node_text = textViews.get(i);
+               node_text.setTextColor(getResources().getColor(R.color.traversal_gray));
           }
+
+          Runnable runnables[] = new Runnable[textViews.size()];
+          for (int i = 0; i < textViews.size(); i++) {
+               runnables[i] = new Runnable(){
+                    public void run(){
+                    }
+               };
+          }
+
+          Handler h = new Handler();
+          Drawable play_stop_image = null;
+          final ImageView play_stop = (ImageView) findViewById(R.id.traversal_play_stop);
+
+          if (traversal_playing) {
+               play_stop_image = getResources().getDrawable(R.drawable.traversal_play);
+               stopTraversal(imageViews,h,runnables);
+          }
+          else {
+               traversal_playing = true;
+               play_stop_image = getResources().getDrawable(R.drawable.traversal_stop);
+               int j = 0;
+               for (int i = 0; i < imageViews.size(); i++) {
+                    ImageView thisView = imageViews.get(i);
+                    AnimationDrawable animation;
+                    if (mode[i] == TRAVERSAL_VISITED) {
+                         if (type[i] == node) {
+                              final TextView node_text = textViews.get(j);
+                              animation = TreeSimAnimation.animateTraversalNode(this, mode[i], currentDuration);
+
+                              runnables[j] = new Runnable(){
+                                   public void run() {
+                                        if (traversal_playing) {
+                                             node_text.setTextColor(getResources().getColor(R.color.traversal_dpink));
+                                             String node_letter = node_text.getText().toString();
+                                             found_list.append(node_letter + "  ");
+                                        }
+                                   }
+                              };
+
+                              h.postDelayed(runnables[j], currentDuration);
+                              j++;
+                         }
+                         else if (type[i] == line1l)
+                              animation = TreeSimAnimation.animateTraversalLine1L(this, mode[i], currentDuration);
+                         else if (type[i] == line2l)
+                              animation = TreeSimAnimation.animateTraversalLine2L(this, mode[i], currentDuration);
+                         else if (type[i] == line3l)
+                              animation = TreeSimAnimation.animateTraversalLine3L(this, mode[i], currentDuration);
+                         else if (type[i] == line1r)
+                              animation = TreeSimAnimation.animateTraversalLine1R(this, mode[i], currentDuration);
+                         else if (type[i] == line2r)
+                              animation = TreeSimAnimation.animateTraversalLine2R(this, mode[i], currentDuration);
+                         else
+                              animation = TreeSimAnimation.animateTraversalLine3R(this, mode[i], currentDuration);
+                         currentDuration += animDuration;
+                         thisView.setImageDrawable(animation);
+                         animation.start();
+                    }
+               }
+
+               Runnable r = new Runnable(){
+                    public void run() {
+                         traversal_playing = false;
+                         play_stop.setImageDrawable(getResources().getDrawable(R.drawable.traversal_play));
+                    }
+               };
+
+               h.postDelayed(r, currentDuration);
+
+          }
+
+         if (traversal_playing) play_stop.setImageDrawable(play_stop_image);
      }
 
+     /*
+          Name: stopTraversal
+          Creation Date: 04/16/2015
+          Purpose: Stops an ongoing tree traversal
+          Arguments:
+               ArrayList<ImageView>  ArrayList of imageViews that contain the UI elements of the tree
+               Handler handler  Handler that holds all the Runnables for the traversal
+               Runnable[]  Array of Runnables
+          Required File: treetraversal.xml, image_size.xml, TreeSimAnimation.java
+          Return Value: none
+
+     */
+
+     public void stopTraversal(ArrayList<ImageView> imageViews, Handler handler, Runnable[] runnables) {
+
+          int node = 0;
+          int line1l = 1;
+          int line1r = 2;
+          int line2l = 3;
+          int line2r = 4;
+          int line3l = 5;
+          int line3r = 6;
+
+          int[] type = {node, line1l, node, line2l, node, node, line3r,node,node,line3r,
+                  line2l,node,line2r,node,line3l,node,node,line3l,node,line3r,
+                  node,node,line3r,line2r,line1l,node,line1r,node,node,line2r,
+                  node,line3l,node,node,line3l,node,line2r,line1r};
+
+          int[] mode = {TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,
+                  TRAVERSAL_VISITED,TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,TRAVERSAL_VISITED,TRAVERSAL_VISITED,
+                  TRAVERSAL_VISITED,TRAVERSAL_VISITED,TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,
+                  TRAVERSAL_UNVISITED,TRAVERSAL_VISITED,TRAVERSAL_VISITED,TRAVERSAL_VISITED,TRAVERSAL_UNVISITED,
+                  TRAVERSAL_UNVISITED,TRAVERSAL_VISITED,TRAVERSAL_VISITED,TRAVERSAL_VISITED,TRAVERSAL_VISITED,
+                  TRAVERSAL_VISITED,TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,TRAVERSAL_VISITED,TRAVERSAL_UNVISITED,
+                  TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,TRAVERSAL_UNVISITED,TRAVERSAL_VISITED,TRAVERSAL_VISITED,
+                  TRAVERSAL_VISITED,TRAVERSAL_VISITED,TRAVERSAL_VISITED};
+
+          for (int i = 0; i < imageViews.size(); i++) {
+               ImageView thisView = imageViews.get(i);
+               if (mode[i] == TRAVERSAL_VISITED) {
+                    if (type[i] == node)
+                         thisView.setImageDrawable(getResources().getDrawable(R.drawable.traversal_node_visited));
+                    else if (type[i] == line1l)
+                         thisView.setImageDrawable(getResources().getDrawable(R.drawable.traversal_line_1l_visited));
+                    else if (type[i] == line2l)
+                         thisView.setImageDrawable(getResources().getDrawable(R.drawable.traversal_line_2l_visited));
+                    else if (type[i] == line3l)
+                         thisView.setImageDrawable(getResources().getDrawable(R.drawable.traversal_line_3l_visited));
+                    else if (type[i] == line1r)
+                         thisView.setImageDrawable(getResources().getDrawable(R.drawable.traversal_line_1r_visited));
+                    else if (type[i] == line2r)
+                         thisView.setImageDrawable(getResources().getDrawable(R.drawable.traversal_line_2r_visited));
+                    else
+                         thisView.setImageDrawable(getResources().getDrawable(R.drawable.traversal_line_3r_visited));
+               }
+          }
+
+          for (int i = 0; i < runnables.length; i++) {
+
+               Runnable r = runnables[i];
+               handler.removeCallbacks(r,null);
+
+               runnables[i] = null;
+          }
+          handler.removeCallbacksAndMessages(null);
+
+          handler = null;
+          runnables = null;
+
+          traversal_playing = false;
+
+          final ImageView play_stop = (ImageView) findViewById(R.id.traversal_play_stop);
+          play_stop.setImageDrawable(getResources().getDrawable(R.drawable.traversal_play));
+
+     }
 
 }
