@@ -44,11 +44,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 package com.pinkplastics.treesim;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.ImageView;
 
 public class BinaryTreeSimulation extends ActionBarActivity {
 
@@ -64,7 +66,6 @@ public class BinaryTreeSimulation extends ActionBarActivity {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_binary_tree_simulation);
      }
-
 
      @Override
      /**
@@ -103,4 +104,17 @@ public class BinaryTreeSimulation extends ActionBarActivity {
 
           return super.onOptionsItemSelected(item);
      }
+
+     public void defaultBinaryTree(View view) {
+          ImageView tree = (ImageView) findViewById(R.id.binary_tree);
+          Drawable tree_state = getResources().getDrawable(R.drawable.binary_tree_full);
+          tree.setImageDrawable(tree_state);
+     }
+
+     public void clearBinaryTree(View view) {
+          ImageView tree = (ImageView) findViewById(R.id.binary_tree);
+          Drawable tree_state = getResources().getDrawable(R.drawable.binary_tree_blank);
+          tree.setImageDrawable(tree_state);
+     }
+
 }
