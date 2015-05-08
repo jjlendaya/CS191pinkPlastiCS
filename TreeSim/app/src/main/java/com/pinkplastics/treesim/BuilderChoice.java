@@ -53,6 +53,8 @@ import android.view.MenuItem;
 
 public class BuilderChoice extends ActionBarActivity {
 
+     public static final String BUILDER_NAME_BINARY_TREE = "Binary.Tree.Builder";
+     public static final String BUILDER_NAME_LINKED_LIST = "Linked.List.Builder";
      ViewPager mViewPager;
      BuilderScreenPagerAdapter mBuilderScreenPagerAdapter;
 
@@ -63,7 +65,7 @@ public class BuilderChoice extends ActionBarActivity {
 
           setTitle("Choose A Builder");
 
-          mViewPager = (ViewPager) findViewById(R.id.builder_choice_pager);
+          mViewPager = (ViewPager) findViewById(R.id.builders_choice_pager);
           mBuilderScreenPagerAdapter = new BuilderScreenPagerAdapter(getSupportFragmentManager());
 
           mViewPager.setAdapter(mBuilderScreenPagerAdapter);

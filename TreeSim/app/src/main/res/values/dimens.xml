@@ -8,4 +8,7 @@
     <dimen name="tap_reminder_text_size">12sp</dimen>
 
     <dimen name="page_description_width">240sp</dimen>
+
+    <dimen name="usage_tracker_top_padding">26dp</dimen>
+    <dimen name="usage_tracker_side_padding">26dp</dimen>
 </resources>

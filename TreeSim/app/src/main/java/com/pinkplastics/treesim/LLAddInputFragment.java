@@ -13,7 +13,7 @@ import android.widget.NumberPicker;
  */
 
 
-public class LLSearchInputFragment extends DialogFragment {
+public class LLAddInputFragment extends DialogFragment {
 
      public static final String EXTRA_INPUT_KEY = "com.pinkplastics.android.llsearchinputintent.number";
 
@@ -48,11 +48,11 @@ public class LLSearchInputFragment extends DialogFragment {
           return builder.create();
      }
 
-     public static LLSearchInputFragment newInstance(int inputKey) {
+     public static LLAddInputFragment newInstance(int inputKey) {
           Bundle args = new Bundle();
           args.putInt(EXTRA_INPUT_KEY, inputKey);
 
-          LLSearchInputFragment fragment = new LLSearchInputFragment();
+          LLAddInputFragment fragment = new LLAddInputFragment();
           fragment.setArguments(args);
 
           return fragment;

@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/ll_icon"
+        android:id="@id/builders_ll_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/linked_list_icon"
@@ -18,14 +18,14 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/ll_icon"
+        android:layout_above="@id/builders_ll_icon"
         android:layout_centerHorizontal="true"
         android:paddingBottom="30dp"
         android:src="@drawable/builders_choose"/>
 
     <TextView
-        android:id="@+id/ll_screen_name"
-        android:layout_below="@id/ll_icon"
+        android:id="@id/builders_ll_screen_name"
+        android:layout_below="@id/builders_ll_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -34,10 +34,10 @@
         android:textSize="@dimen/page_title_text"/>
 
     <TextView
-        android:id="@+id/ll_description"
+        android:id="@id/builders_ll_description"
         android:layout_width="@dimen/page_description_width"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ll_screen_name"
+        android:layout_below="@id/builders_ll_screen_name"
         android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
@@ -46,10 +46,10 @@
         android:text="@string/ll_desc"/>
 
     <TextView
-        android:id="@+id/ll_tapscreen"
+        android:id="@id/builders_ll_tapscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ll_description"
+        android:layout_below="@id/builders_ll_description"
         android:paddingTop="20dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"

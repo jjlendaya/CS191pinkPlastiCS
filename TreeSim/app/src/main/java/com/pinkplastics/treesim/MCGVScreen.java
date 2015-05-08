@@ -124,13 +124,13 @@ public class MCGVScreen extends Fragment {
           View view = inflater.inflate(com.pinkplastics.treesim.R.layout.fragment_mcgvscreen, container, false);
 
           Typeface heroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/hero.otf");
-          TextView builders = (TextView) view.findViewById(com.pinkplastics.treesim.R.id.mcgv_name);
+          TextView builders = (TextView) view.findViewById(R.id.main_mcgv_screen_name);
           builders.setTypeface(heroFont);
 
-          TextView desc = (TextView) view.findViewById(com.pinkplastics.treesim.R.id.mcgv_description);
+          TextView desc = (TextView) view.findViewById(R.id.main_mcgv_description);
           desc.setTypeface(heroFont);
 
-          TextView reminder = (TextView) view.findViewById(com.pinkplastics.treesim.R.id.mcgv_tapscreen);
+          TextView reminder = (TextView) view.findViewById(R.id.main_mcgv_tapscreen);
           reminder.setTypeface(heroFont);
 
           view.setOnClickListener(new View.OnClickListener() {

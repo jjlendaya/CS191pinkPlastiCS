@@ -54,6 +54,9 @@ import android.view.View;
 
 public class DemoChoice extends ActionBarActivity {
 
+     public static final String DEMO_NAME_PREORDER_TRAVERSAL = "Preorder.Traversal.Demo";
+     public static final String DEMO_NAME_INORDER_TRAVERSAL = "Inorder.Traversal.Demo";
+     public static final String DEMO_NAME_POSTORDER_TRAVERSAL = "Postorder.Traversal.Demo";
      private ViewPager mViewPager;
      private DemoScreenPagerAdapter mScreenPagerAdapter;
 
@@ -61,9 +64,8 @@ public class DemoChoice extends ActionBarActivity {
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_demo_choice);
-          //View view = findViewById(android.R.id.content);
 
-          mViewPager = (ViewPager) findViewById(R.id.activity_demo_choice_pager);
+          mViewPager = (ViewPager) findViewById(R.id.demos_choice_pager);
           mScreenPagerAdapter = new DemoScreenPagerAdapter(getSupportFragmentManager());
 
           mViewPager.setAdapter(mScreenPagerAdapter);

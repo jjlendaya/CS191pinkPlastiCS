@@ -332,7 +332,7 @@ public class LinkedListSimulation extends ActionBarActivity {
                case R.id.ll_default_list:
                     break;
                case R.id.ll_search_node:
-                    searchNode();
+                    searchNodeShowDialog();
                     break;
                case R.id.ll_add_node:
                     break;
@@ -353,23 +353,22 @@ public class LinkedListSimulation extends ActionBarActivity {
      }
 
      /**
-      * searchNode
+      * searchNodeShowDialog
       * Creation Date: 02/27/2015
       * Purpose: Handles the click to "Search Node" menu item. Shows a dialog box, gets input, and
       * passes the input value to animateLinkedList
       */
-     public void searchNode() {
+     public void searchNodeShowDialog() {
           FragmentManager fm = getSupportFragmentManager();
-          LLSearchInputFragment inputDialog = new LLSearchInputFragment();
+          LLSearchInputFragment inputDialog = LLSearchInputFragment.newInstance(0);
           inputDialog.show(fm, SEARCH_NODE_TAG);
-          int[] userInput = new int[1];
-          userInput[0] = inputDialog.getInputValue();
-          //animateLinkedList(CONSTANT, userInput)
      }
 
-     /*public void animateLinkedList() {
-
-     }*/
+     public void receiveSearchKey(int inputKey) {
+          ViewGroup root = (ViewGroup) findViewById(R.id.main_layout);
+          LinearLayout layout = (LinearLayout)root.getChildAt(0);
+          linkedListSearch(layout, inputKey );
+     }
 
      public LinearLayout createLinkedList(MyLinkedList linkedList) {
           LinearLayout outerLayout = new LinearLayout(this);

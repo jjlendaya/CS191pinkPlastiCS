@@ -6,9 +6,8 @@
              android:background="@color/simulationmenu"
              tools:context="com.pinkplastics.treesim.PreorderTraversalScreen">
 
-
     <ImageView
-        android:id="@+id/bt_icon"
+        android:id="@id/builders_bt_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/builders_binary_trees_icon"
@@ -18,14 +17,14 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/bt_icon"
+        android:layout_above="@id/builders_bt_icon"
         android:layout_centerHorizontal="true"
         android:paddingBottom="30dp"
         android:src="@drawable/builders_choose"/>
 
     <TextView
-        android:id="@+id/bt_screen_name"
-        android:layout_below="@id/bt_icon"
+        android:id="@id/builders_bt_screen_name"
+        android:layout_below="@id/builders_bt_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -34,10 +33,10 @@
         android:textSize="@dimen/page_title_text"/>
 
     <TextView
-        android:id="@+id/bt_description"
+        android:id="@id/builders_bt_description"
         android:layout_width="@dimen/page_description_width"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bt_screen_name"
+        android:layout_below="@id/builders_bt_screen_name"
         android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
@@ -46,10 +45,10 @@
         android:text="@string/bt_desc"/>
 
     <TextView
-        android:id="@+id/bt_tapscreen"
+        android:id="@id/builders_bt_tapscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bt_description"
+        android:layout_below="@id/builders_bt_description"
         android:paddingTop="20dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"

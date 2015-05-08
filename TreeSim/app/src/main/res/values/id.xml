@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- Builders -->
+    <!-- Builder Choice -->
+        <item type="id" name="builders_choice_pager"/>
+        <!-- Builder Fragments -->
+        <!-- Binary Tree -->
+        <item type="id" name="builders_bt_icon"/>
+        <item type="id" name="builders_bt_screen_name"/>
+        <item type="id" name="builders_bt_description"/>
+        <item type="id" name="builders_bt_tapscreen"/>
+        <!-- Linked List -->
+        <item type="id" name="builders_ll_icon"/>
+        <item type="id" name="builders_ll_screen_name"/>
+        <item type="id" name="builders_ll_description"/>
+        <item type="id" name="builders_ll_tapscreen"/>
+
+    <!-- Demos -->
+    <!-- Demo Choice -->
+        <item type="id" name="demos_choice_pager"/>
+
+        <!-- Demos Fragments -->
+
+        <!-- Preorder Tree Traversal -->
+        <item type="id" name="demos_ptt_icon"/>
+        <item type="id" name="demos_ptt_screen_name"/>
+        <item type="id" name="demos_ptt_description"/>
+        <item type="id" name="demos_ptt_tapscreen"/>
+
+        <!-- Inorder Tree Traversal -->
+        <item type="id" name="demos_itt_icon"/>
+        <item type="id" name="demos_itt_screen_name"/>
+        <item type="id" name="demos_itt_description"/>
+        <item type="id" name="demos_itt_tapscreen"/>
+
+        <!-- Postorder Tree Traversal -->
+        <item type="id" name="demos_pott_icon"/>
+        <item type="id" name="demos_pott_screen_name"/>
+        <item type="id" name="demos_pott_description"/>
+        <item type="id" name="demos_pott_tapscreen"/>
+
+        <!-- Demos Activities -->
+
+    <!-- Main Screens -->
+
+        <!-- Main Activity -->
+        <item type="id" name="main_pager"/>
+
+        <!-- MCGI Screen -->
+        <item type="id" name="main_mcgi_icon"/>
+        <item type="id" name="main_mcgi_screen_name"/>
+        <item type="id" name="main_mcgi_description"/>
+        <item type="id" name="main_mcgi_tapscreen"/>
+
+        <!-- MCGV Screen -->
+        <item type="id" name="main_mcgv_icon"/>
+        <item type="id" name="main_mcgv_screen_name"/>
+        <item type="id" name="main_mcgv_description"/>
+        <item type="id" name="main_mcgv_tapscreen"/>
+
+        <!-- Usage Tracker -->
+        <item type="id" name="usage_tracker_list"/>
+        <item type="id" name="usage_tracker_list_simulation_name"/>
+        <item type="id" name="usage_tracker_list_amount_tracker"/>
+
+
+    <!-- UI Resources -->
+    <item type="id" name="dialog_number_picker"/>
+
+        <!-- Builders: Linked List Add Input Dialog -->
+        <item type="id" name="builders_ll_add_input_data_picker"/>
+        <item type="id" name="builders_ll_add_input_index_picker"/>
+        <item type="id" name="builders_ll_add_input_data_header"/>
+        <item type="id" name="builders_ll_add_input_index_header"/>
+
+
+</resources>
