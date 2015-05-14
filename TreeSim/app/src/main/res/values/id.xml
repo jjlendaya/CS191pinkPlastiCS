@@ -17,6 +17,27 @@
         <item type="id" name="builders_ll_description"/>
         <item type="id" name="builders_ll_tapscreen"/>
 
+        <item type="id" name="ll_dialog_cancel"/>
+        <!-- Linked List Search Dialog -->
+        <item type="id" name="ll_dialog_search"/>
+        <item type="id" name="ll_dialog_number_picker"/>
+        <item type="id" name="ll_dialog_search_instructions"/>
+        <item type="id" name="ll_dialog_positive"/>
+        <!-- Linked List Add Dialog -->
+        <item type="id" name="ll_dialog_add"/>
+        <item type="id" name="ll_dialog_add_instructions"/>
+        <item type="id" name="ll_dialog_add_index_label"/>
+        <item type="id" name="ll_dialog_add_value_label"/>
+        <item type="id" name="ll_dialog_add_index_number_picker"/>
+        <item type="id" name="ll_dialog_add_value_number_picker"/>
+        <item type="id" name="ll_dialog_add_number_pickers"/>
+        <item type="id" name="ll_dialog_add_positive"/>
+        <!-- Linked List Delete Dialog -->
+        <item type="id" name="ll_dialog_delete"/>
+        <item type="id" name="ll_dialog_delete_number_picker"/>
+        <item type="id" name="ll_dialog_delete_instructions"/>
+        <item type="id" name="ll_dialog_delete_positive"/>
+
     <!-- Demos -->
     <!-- Demo Choice -->
         <item type="id" name="demos_choice_pager"/>

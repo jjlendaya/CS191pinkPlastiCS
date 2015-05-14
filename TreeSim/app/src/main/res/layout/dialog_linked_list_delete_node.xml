@@ -4,39 +4,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context="com.pinkplastics.treesim.LinkedListSimulation"
-                android:id="@id/ll_dialog_search">
+                android:id="@id/ll_dialog_delete">
 
     <TextView
         android:paddingTop="@dimen/abc_text_size_body_1_material"
         android:paddingLeft="@dimen/abc_text_size_body_1_material"
-        android:id="@id/ll_dialog_search_instructions"
+        android:id="@id/ll_dialog_delete_instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:text="@string/desc_ll_search_node_instruction">
+        android:text="@string/desc_ll_delete_node_instruction">
     </TextView>
 
     <NumberPicker
         android:paddingTop="@dimen/abc_text_size_body_1_material"
-        android:id="@id/ll_dialog_number_picker"
+        android:id="@id/ll_dialog_delete_number_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/ll_dialog_search_instructions">
+        android:layout_below="@id/ll_dialog_delete_instructions">
     </NumberPicker>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/ll_dialog_number_picker">
+        android:layout_below="@id/ll_dialog_delete_number_picker">
 
         <Button
-            android:id="@id/ll_dialog_positive"
+            android:id="@id/ll_dialog_delete_positive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ll_dialog_search_positive"/>
+            android:text="@string/ll_dialog_delete_positive"/>
 
         <Button
             android:id="@id/ll_dialog_cancel"

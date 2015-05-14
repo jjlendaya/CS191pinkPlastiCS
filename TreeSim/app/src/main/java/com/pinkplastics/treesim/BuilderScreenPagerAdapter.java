@@ -53,7 +53,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  * Created by Jeynald on 2/27/2015.
  */
 public class BuilderScreenPagerAdapter extends FragmentPagerAdapter {
-     public static final int NUM_OF_SCREENS = 1000000;
+     public static final int NUM_OF_SCREENS = 2;
 
      /**
       * Constructor
@@ -76,7 +76,7 @@ public class BuilderScreenPagerAdapter extends FragmentPagerAdapter {
       * @return    Fragment   the fragment to be displayed
       */
      public Fragment getItem(int position) {
-          switch (position % 2) {
+          switch (position) {
                case 0:
                     return LinkedListScreen.newInstance(Integer.toString(position));
                case 1:

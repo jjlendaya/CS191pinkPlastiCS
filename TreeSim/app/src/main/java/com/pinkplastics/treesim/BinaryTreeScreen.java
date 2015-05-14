@@ -63,10 +63,8 @@ import android.widget.TextView;
  */
 public class BinaryTreeScreen extends Fragment {
 
-
      private static final String ARG_POSITION = "position";
      private String mPosition;
-
 
      /**
       * Use this factory method to create a new instance of

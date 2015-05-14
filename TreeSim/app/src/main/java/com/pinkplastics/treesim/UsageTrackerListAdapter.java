@@ -49,7 +49,7 @@ public class UsageTrackerListAdapter extends BaseAdapter {
           UsageTrackerTextView simulationName = (UsageTrackerTextView) arg1.findViewById(R.id.usage_tracker_list_simulation_name);
           UsageTrackerTextView simulationNumber = (UsageTrackerTextView) arg1.findViewById(R.id.usage_tracker_list_amount_tracker);
           UsageDAOPair item = usageList.get(arg0);
-          simulationName.setText(item.getName());
+          simulationName.setText(item.getName().replace('.', ' '));
           simulationNumber.setText(Integer.toString(item.usageAmount));
 
           return arg1;

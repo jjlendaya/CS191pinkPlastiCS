@@ -16,10 +16,13 @@ public class UsageTracker extends ActionBarActivity {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_usage_tracker);
 
+          setTitle("Usage Tracker");
+
           listView = (ListView) findViewById(R.id.usage_tracker_list);
           FileHandler fh = new FileHandler(getApplicationContext());
           UsageTrackerListAdapter utla = new UsageTrackerListAdapter(fh, getApplicationContext());
           listView.setAdapter(utla);
+
      }
 
      @Override

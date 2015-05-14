@@ -49,6 +49,7 @@ Code Summary: Screen of the Linked List Simulation
 package com.pinkplastics.treesim;
 
 import android.animation.LayoutTransition;
+import android.app.Dialog;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
@@ -63,8 +64,11 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.LinkedList;
 
 public class LinkedListSimulation extends ActionBarActivity {
 
@@ -87,6 +91,18 @@ public class LinkedListSimulation extends ActionBarActivity {
      final int NODE_TEXT_TMARGIN = 8;
      final int NODE_TEXT_LMARGIN = 18;
 
+     Dialog searchNodeDialog = null;
+     Dialog addNodeDialog = null;
+     Dialog deleteNodeDialog = null;
+     Dialog clearListDialog = null;
+     Dialog defaultListDialog = null;
+
+     NumberPicker np;
+     NumberPicker index;
+     NumberPicker value;
+
+     LinearLayout linkedListLayout;
+     MyLinkedList linkedList;
 
      private static final String SEARCH_NODE_TAG = "search";
      MyLinkedList ll;
@@ -108,9 +124,9 @@ public class LinkedListSimulation extends ActionBarActivity {
           final ViewGroup root = (ViewGroup)findViewById(R.id.main_layout);
 
           // -------------------- LINKED LIST IS ADDED HERE --------------------
-          final MyLinkedList linkedList = new MyLinkedList();
+          linkedList = new MyLinkedList();
           linkedList.defaultList();
-          final LinearLayout linkedListLayout = createLinkedList(linkedList);
+          linkedListLayout = createLinkedList(linkedList);
           root.addView(linkedListLayout);
 
           final EditText textField = new EditText(this);
@@ -327,20 +343,140 @@ public class LinkedListSimulation extends ActionBarActivity {
           int id = item.getItemId();
 
           switch (id) {
-               case R.id.ll_clear_list:
-                    break;
-               case R.id.ll_default_list:
-                    break;
                case R.id.ll_search_node:
-                    searchNodeShowDialog();
+                    handleSearchNode();
                     break;
                case R.id.ll_add_node:
+                    handleAddNode();
+                    break;
+               case R.id.ll_delete_node:
+                    handleDeleteNode();
+                    break;
+               case R.id.ll_clear_list:
+                    handleClearList();
+                    break;
+               case R.id.ll_default_list:
+                    handleDefaultList();
                     break;
                default:
                     break;
           }
 
           return super.onOptionsItemSelected(item);
+     }
+
+     public ViewGroup getRootView() {
+          return (ViewGroup) findViewById(R.id.main_layout);
+     }
+
+     public void handleSearchNode() {
+          searchNodeDialog = new Dialog(LinkedListSimulation.this);
+          searchNodeDialog.setTitle("Search Node");
+          searchNodeDialog.setContentView(R.layout.dialog_number_picker);
+
+          np = (NumberPicker) searchNodeDialog.findViewById(R.id.ll_dialog_number_picker);
+          np.setMaxValue(99);
+          np.setMinValue(0);
+          np.setWrapSelectorWheel(true);
+          Button acceptButton = (Button) searchNodeDialog.findViewById(R.id.ll_dialog_positive);
+          Button cancelButton = (Button) searchNodeDialog.findViewById(R.id.ll_dialog_cancel);
+          acceptButton.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                    LinkedListSimulation.this.linkedListSearch((LinearLayout) LinkedListSimulation.this.getRootView().getChildAt(getLinkedListIndex()), np.getValue());
+                    searchNodeDialog.dismiss();
+               }
+          });
+          cancelButton.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                    searchNodeDialog.dismiss();
+                    np = null;
+               }
+          });
+          searchNodeDialog.show();
+     }
+
+     public void handleAddNode() {
+          addNodeDialog = new Dialog(LinkedListSimulation.this);
+          addNodeDialog.setTitle("Add Node");
+          addNodeDialog.setContentView(R.layout.dialog_linked_list_add_node);
+          value = (NumberPicker) addNodeDialog.findViewById(R.id.ll_dialog_add_value_number_picker);
+          index = (NumberPicker) addNodeDialog.findViewById(R.id.ll_dialog_add_index_number_picker);
+          value.setMinValue(0);
+          value.setMaxValue(99);
+          index.setMinValue(0);
+          index.setMaxValue(99);
+          value.setWrapSelectorWheel(true);
+          index.setWrapSelectorWheel(true);
+          Button acceptButton = (Button) addNodeDialog.findViewById(R.id.ll_dialog_add_positive);
+          Button cancelButton = (Button) addNodeDialog.findViewById(R.id.ll_dialog_cancel);
+          acceptButton.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                    ViewGroup root = getRootView();
+                    root.removeViewAt(getLinkedListIndex());
+                    root.addView(linkedListAdd(linkedList, value.getValue(), index.getValue()), getLinkedListIndex());
+                    addNodeDialog.dismiss();
+               }
+          });
+          cancelButton.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                    addNodeDialog.dismiss();
+                    value = null;
+                    index = null;
+               }
+          });
+          addNodeDialog.show();
+     }
+
+     public void handleDeleteNode() {
+          deleteNodeDialog = new Dialog(LinkedListSimulation.this);
+          deleteNodeDialog.setTitle("Delete Node");
+          deleteNodeDialog.setContentView(R.layout.dialog_linked_list_delete_node);
+
+          np = (NumberPicker) deleteNodeDialog.findViewById(R.id.ll_dialog_delete_number_picker);
+          np.setMaxValue(99);
+          np.setMinValue(0);
+          np.setWrapSelectorWheel(true);
+          Button acceptButton = (Button) deleteNodeDialog.findViewById(R.id.ll_dialog_delete_positive);
+          Button cancelButton = (Button) deleteNodeDialog.findViewById(R.id.ll_dialog_cancel);
+          acceptButton.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                    deleteNodeDialog.dismiss();
+                    ViewGroup root = getRootView();
+                    root.removeViewAt(getLinkedListIndex());
+                    root.addView(linkedListDelete(linkedList, np.getValue()), getLinkedListIndex());
+               }
+          });
+          cancelButton.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                    deleteNodeDialog.dismiss();
+                    np = null;
+               }
+          });
+          deleteNodeDialog.show();
+     }
+
+     public void handleClearList() {
+          linkedList.clear();
+          ViewGroup root = getRootView();
+          root.removeViewAt(getLinkedListIndex());
+          root.addView(createLinkedList(linkedList), getLinkedListIndex());
+     }
+
+     public void handleDefaultList() {
+          linkedList.defaultList();
+          ViewGroup root = getRootView();
+          root.removeViewAt(getLinkedListIndex());
+          root.addView(createLinkedList(linkedList), getLinkedListIndex());
+     }
+
+     public int getLinkedListIndex() {
+          return 0;
      }
 
      /**
@@ -350,24 +486,6 @@ public class LinkedListSimulation extends ActionBarActivity {
       */
      public void defaultList() {
           ll.defaultList();
-     }
-
-     /**
-      * searchNodeShowDialog
-      * Creation Date: 02/27/2015
-      * Purpose: Handles the click to "Search Node" menu item. Shows a dialog box, gets input, and
-      * passes the input value to animateLinkedList
-      */
-     public void searchNodeShowDialog() {
-          FragmentManager fm = getSupportFragmentManager();
-          LLSearchInputFragment inputDialog = LLSearchInputFragment.newInstance(0);
-          inputDialog.show(fm, SEARCH_NODE_TAG);
-     }
-
-     public void receiveSearchKey(int inputKey) {
-          ViewGroup root = (ViewGroup) findViewById(R.id.main_layout);
-          LinearLayout layout = (LinearLayout)root.getChildAt(0);
-          linkedListSearch(layout, inputKey );
      }
 
      public LinearLayout createLinkedList(MyLinkedList linkedList) {

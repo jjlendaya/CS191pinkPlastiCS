@@ -3,24 +3,30 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.pinkplastics.treesim.LinkedListSimulation">
 
-    <item android:id="@+id/ll_add_node"
-          android:title="@string/desc_ll_add_node"
-          android:orderInCategory="99"
-          app:showAsAction="never"/>
 
     <item android:id="@+id/ll_search_node"
           android:title="@string/desc_ll_search_node"
-          android:orderInCategory="50"
+          android:orderInCategory="1"
+          app:showAsAction="never"/>
+
+    <item android:id="@+id/ll_add_node"
+          android:title="@string/desc_ll_add_node"
+          android:orderInCategory="2"
+          app:showAsAction="never"/>
+
+    <item android:id="@+id/ll_delete_node"
+          android:title="@string/desc_ll_delete_node"
+          android:orderInCategory="3"
           app:showAsAction="never"/>
 
     <item android:id="@+id/ll_clear_list"
           android:title="@string/desc_ll_clear_list"
-          android:orderInCategory="55"
+          android:orderInCategory="4"
           app:showAsAction="never"/>
 
     <item android:id="@+id/ll_default_list"
           android:title="@string/desc_ll_default_list"
-          android:orderInCategory="53"
+          android:orderInCategory="5"
           app:showAsAction="never"/>
 
     <item android:id="@+id/ll_settings"
