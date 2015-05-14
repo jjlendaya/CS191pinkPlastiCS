@@ -44,6 +44,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 package com.pinkplastics.treesim;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
@@ -86,7 +88,7 @@ public class BinaryTreeSimulation extends ActionBarActivity {
                          add.setImageDrawable(animation);
                          animation.start();
 
-                         // insert dialog box
+                         underConstruction();
 
                     }
 
@@ -103,7 +105,7 @@ public class BinaryTreeSimulation extends ActionBarActivity {
                          delete.setImageDrawable(animation);
                          animation.start();
 
-                         // insert dialog box
+                         underConstruction();
 
                     }
                }
@@ -119,7 +121,7 @@ public class BinaryTreeSimulation extends ActionBarActivity {
                          search.setImageDrawable(animation);
                          animation.start();
 
-                         // insert dialog box
+                         underConstruction();
 
                     }
                }
@@ -179,6 +181,21 @@ public class BinaryTreeSimulation extends ActionBarActivity {
                }
           });
 
+     }
+
+     public void underConstruction() {
+          AlertDialog.Builder builder = new AlertDialog.Builder(BinaryTreeSimulation.this);
+          builder.setMessage("This feature is under construction");
+          builder.setCancelable(true);
+          builder.setPositiveButton("Back",
+                  new DialogInterface.OnClickListener() {
+                       public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                       }
+                  });
+
+          AlertDialog underConstructionDialog = builder.create();
+          underConstructionDialog.show();
      }
 
      @Override

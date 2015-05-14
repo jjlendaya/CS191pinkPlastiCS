@@ -26,7 +26,7 @@ public class UsageTrackerListAdapter extends BaseAdapter {
 
      @Override
      public int getCount() {
-          return usageList.size();
+          return usageList.size() + 1;
      }
 
      @Override
@@ -48,10 +48,16 @@ public class UsageTrackerListAdapter extends BaseAdapter {
 
           UsageTrackerTextView simulationName = (UsageTrackerTextView) arg1.findViewById(R.id.usage_tracker_list_simulation_name);
           UsageTrackerTextView simulationNumber = (UsageTrackerTextView) arg1.findViewById(R.id.usage_tracker_list_amount_tracker);
-          UsageDAOPair item = usageList.get(arg0);
-          simulationName.setText(item.getName().replace('.', ' '));
+          if(arg0 == 0) {
+               simulationName.setText("Simulation Name");
+               simulationNumber.setText("Times Used");
+          } else {
+               UsageDAOPair item = usageList.get(arg0 - 1);
+               simulationName.setText(item.getName().replace('.', ' '));
+               simulationNumber.setText(Integer.toString(item.usageAmount));
+          }
+
           simulationName.setTextColor(context.getResources().getColor(R.color.traversal_gray));
-          simulationNumber.setText(Integer.toString(item.usageAmount));
           simulationNumber.setTextColor(context.getResources().getColor(R.color.traversal_gray));
 
           return arg1;

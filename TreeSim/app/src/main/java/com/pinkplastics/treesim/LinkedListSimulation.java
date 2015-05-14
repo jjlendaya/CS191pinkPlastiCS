@@ -124,16 +124,16 @@ public class LinkedListSimulation extends ActionBarActivity {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_linked_list_simulation);
 
-          setTitle("Linked Lists");
+          setTitle("Linked List Builder");
 
           final ViewGroup root = (ViewGroup)findViewById(R.id.main_layout);
+
 
           // -------------------- LINKED LIST IS ADDED HERE --------------------
           linkedList = new MyLinkedList();
           linkedList.defaultList();
           linkedListLayout = createLinkedList(linkedList);
           root.addView(linkedListLayout);
-
 
 
           // -------------------- MENU IS ADDED HERE --------------------
@@ -148,14 +148,7 @@ public class LinkedListSimulation extends ActionBarActivity {
                          add.setImageDrawable(animation);
                          animation.start();
 
-                         int data = 0; // default values only. delete later.
-                         int index = 0; // default values only. delete later.
-
-                         int linkedListIndex = root.getChildCount() - 1;
-
-                         // Replace with dialogue box function
-                         root.removeViewAt(linkedListIndex);
-                         root.addView(linkedListAdd(linkedList, data, index), linkedListIndex);
+                         handleAddNode();
                     }
 
                }
@@ -171,11 +164,7 @@ public class LinkedListSimulation extends ActionBarActivity {
                          delete.setImageDrawable(animation);
                          animation.start();
 
-                         int index = 0; // default values only. delete later.
-                         int linkedListIndex = root.getChildCount() - 1;
-
-                         root.removeViewAt(linkedListIndex);
-                         root.addView(linkedListDelete(linkedList, index), linkedListIndex);
+                         handleDeleteNode();
                     }
                }
           });
@@ -190,10 +179,7 @@ public class LinkedListSimulation extends ActionBarActivity {
                          search.setImageDrawable(animation);
                          animation.start();
 
-                         //int searchNum = Integer.parseInt(textField2.getText().toString());
-                         int searchNum = 69; // default values only. delete later.
-                         LinearLayout layout = (LinearLayout) root.getChildAt(root.getChildCount() - 1);
-                         linkedListSearch(layout, searchNum);
+                         handleSearchNode();
                     }
                }
           });
@@ -243,8 +229,7 @@ public class LinkedListSimulation extends ActionBarActivity {
                          reset.setImageDrawable(null);
                          clear.setImageDrawable(null);
                          menu_enabled = false;
-                    }
-                    else {
+                    } else {
                          menu.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_button_selected));
                          add.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_add_node));
                          delete.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_delete_node));
@@ -255,6 +240,8 @@ public class LinkedListSimulation extends ActionBarActivity {
                     }
                }
           });
+
+
 
      }
 
@@ -299,12 +286,13 @@ public class LinkedListSimulation extends ActionBarActivity {
                case R.id.ll_delete_node:
                     handleDeleteNode();
                     break;
+               /*
                case R.id.ll_clear_list:
                     handleClearList();
                     break;
                case R.id.ll_default_list:
                     handleDefaultList();
-                    break;
+                    break;*/
                default:
                     break;
           }
@@ -330,7 +318,8 @@ public class LinkedListSimulation extends ActionBarActivity {
           acceptButton.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                    LinkedListSimulation.this.linkedListSearch((LinearLayout) LinkedListSimulation.this.getRootView().getChildAt(getLinkedListIndex()), np.getValue());
+                    int linkedListIndex = getRootView().getChildCount() - 1;
+                    LinkedListSimulation.this.linkedListSearch((LinearLayout) LinkedListSimulation.this.getRootView().getChildAt(linkedListIndex), np.getValue());
                     searchNodeDialog.dismiss();
                }
           });
@@ -362,8 +351,11 @@ public class LinkedListSimulation extends ActionBarActivity {
                @Override
                public void onClick(View v) {
                     ViewGroup root = getRootView();
-                    root.removeViewAt(getLinkedListIndex());
-                    root.addView(linkedListAdd(linkedList, value.getValue(), index.getValue()), getLinkedListIndex());
+                    int linkedListIndex = root.getChildCount() - 1;
+
+                    // Replace with dialogue box function
+                    root.removeViewAt(linkedListIndex);
+                    root.addView(linkedListAdd(linkedList, value.getValue(), index.getValue()), linkedListIndex);
                     addNodeDialog.dismiss();
                }
           });
@@ -394,8 +386,9 @@ public class LinkedListSimulation extends ActionBarActivity {
                public void onClick(View v) {
                     deleteNodeDialog.dismiss();
                     ViewGroup root = getRootView();
-                    root.removeViewAt(getLinkedListIndex());
-                    root.addView(linkedListDelete(linkedList, np.getValue()), getLinkedListIndex());
+                    int linkedListIndex = root.getChildCount() - 1;
+                    root.removeViewAt(linkedListIndex);
+                    root.addView(linkedListDelete(linkedList, np.getValue()), linkedListIndex);
                }
           });
           cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -406,24 +399,6 @@ public class LinkedListSimulation extends ActionBarActivity {
                }
           });
           deleteNodeDialog.show();
-     }
-
-     public void handleClearList() {
-          linkedList.clear();
-          ViewGroup root = getRootView();
-          root.removeViewAt(getLinkedListIndex());
-          root.addView(createLinkedList(linkedList), getLinkedListIndex());
-     }
-
-     public void handleDefaultList() {
-          linkedList.defaultList();
-          ViewGroup root = getRootView();
-          root.removeViewAt(getLinkedListIndex());
-          root.addView(createLinkedList(linkedList), getLinkedListIndex());
-     }
-
-     public int getLinkedListIndex() {
-          return 0;
      }
 
      /**
