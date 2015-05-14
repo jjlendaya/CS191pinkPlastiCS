@@ -64,6 +64,12 @@ public class TreeSimAnimation {
      final static int TRAVERSAL_VISITED = 2;
      final static int TRAVERSAL_FOUND = 3;
 
+     final static int ADD_ACTION = 0;
+     final static int DELETE_ACTION = 1;
+     final static int SEARCH_ACTION = 2;
+     final static int RESET_ACTION = 3;
+     final static int CLEAR_ACTION = 4;
+
      final static int animDuration = 1000;
 
      public static AnimationDrawable animateNode(Context context, int mode, int duration) {
@@ -204,12 +210,41 @@ public class TreeSimAnimation {
           }
           return traversalAnimation;
      }
-
+     /*
      public static AnimationDrawable animateTraversalPlayStop(Context context, int duration) {
           AnimationDrawable traversalAnimation = new AnimationDrawable();
           traversalAnimation.addFrame(context.getResources().getDrawable(R.drawable.traversal_play), duration);
           traversalAnimation.addFrame(context.getResources().getDrawable(R.drawable.traversal_stop), animDuration);
           return traversalAnimation;
+     }
+     */
+
+     public static AnimationDrawable animateMenuItem(Context context, int action) {
+          AnimationDrawable menuAnimation = new AnimationDrawable();
+          int duration = 200;
+
+          if (action == ADD_ACTION) {
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_add_node_selected), duration);
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_add_node), duration);
+          }
+          else if (action == DELETE_ACTION) {
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_delete_node_selected), duration);
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_delete_node), duration);
+          }
+          else if (action == RESET_ACTION) {
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_reset_to_default_selected), duration);
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_reset_to_default), duration);
+          }
+          else if (action == CLEAR_ACTION) {
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_clear_list_selected), duration);
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_clear_list), duration);
+          }
+          else {
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_search_node_selected), duration);
+               menuAnimation.addFrame(context.getResources().getDrawable(R.drawable.linked_list_menu_search_node), duration);
+          }
+          menuAnimation.setOneShot(true);
+          return menuAnimation;
      }
 
 }

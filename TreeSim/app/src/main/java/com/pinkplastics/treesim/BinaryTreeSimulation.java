@@ -44,13 +44,25 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 package com.pinkplastics.treesim;
 
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class BinaryTreeSimulation extends ActionBarActivity {
+
+     final static int ADD_ACTION = 0;
+     final static int DELETE_ACTION = 1;
+     final static int SEARCH_ACTION = 2;
+     final static int RESET_ACTION = 3;
+     final static int CLEAR_ACTION = 4;
+
+     boolean menu_enabled = true;
 
      @Override
      /**
@@ -63,8 +75,111 @@ public class BinaryTreeSimulation extends ActionBarActivity {
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_binary_tree_simulation);
-     }
 
+          final ImageView add = (ImageView)findViewById(R.id.binary_tree_menu_add);
+          add.setOnClickListener(new View.OnClickListener() {
+               public void onClick(View v) {
+
+                    // set animation
+                    if (menu_enabled) {
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), ADD_ACTION);
+                         add.setImageDrawable(animation);
+                         animation.start();
+
+                         // insert dialog box
+
+                    }
+
+               }
+          });
+
+          final ImageView delete = (ImageView)findViewById(R.id.binary_tree_menu_delete);
+          delete.setOnClickListener(new View.OnClickListener() {
+               public void onClick(View v) {
+
+                    if (menu_enabled) {
+                         // set animation
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), DELETE_ACTION);
+                         delete.setImageDrawable(animation);
+                         animation.start();
+
+                         // insert dialog box
+
+                    }
+               }
+          });
+
+          final ImageView search = (ImageView)findViewById(R.id.binary_tree_menu_search);
+          search.setOnClickListener(new View.OnClickListener() {
+               public void onClick(View v) {
+
+                    if (menu_enabled) {
+                         // set animation
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), SEARCH_ACTION);
+                         search.setImageDrawable(animation);
+                         animation.start();
+
+                         // insert dialog box
+
+                    }
+               }
+          });
+
+          final ImageView reset = (ImageView)findViewById(R.id.binary_tree_menu_reset);
+          reset.setOnClickListener(new View.OnClickListener() {
+               public void onClick(View v) {
+                    if (menu_enabled) {
+                         // set animation
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), RESET_ACTION);
+                         reset.setImageDrawable(animation);
+                         animation.start();
+
+                         defaultBinaryTree();
+
+                    }
+               }
+          });
+
+          final ImageView clear = (ImageView)findViewById(R.id.binary_tree_menu_clear);
+          clear.setOnClickListener(new View.OnClickListener() {
+               public void onClick(View v) {
+                    if (menu_enabled) {
+                         // set animation
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), CLEAR_ACTION);
+                         clear.setImageDrawable(animation);
+                         animation.start();
+
+                         clearBinaryTree();
+
+                    }
+               }
+          });
+
+          final ImageView menu = (ImageView)findViewById(R.id.binary_tree_menu_button);
+          menu.setOnClickListener(new View.OnClickListener() {
+               public void onClick(View v) {
+                    if (menu_enabled) {
+                         menu.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_button));
+                         add.setImageDrawable(null);
+                         delete.setImageDrawable(null);
+                         search.setImageDrawable(null);
+                         reset.setImageDrawable(null);
+                         clear.setImageDrawable(null);
+                         menu_enabled = false;
+                    }
+                    else {
+                         menu.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_button_selected));
+                         add.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_add_node));
+                         delete.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_delete_node));
+                         search.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_search_node));
+                         reset.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_reset_to_default));
+                         clear.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_clear_list));
+                         menu_enabled = true;
+                    }
+               }
+          });
+
+     }
 
      @Override
      /**
@@ -103,4 +218,17 @@ public class BinaryTreeSimulation extends ActionBarActivity {
 
           return super.onOptionsItemSelected(item);
      }
+
+     public void defaultBinaryTree() {
+          ImageView tree = (ImageView) findViewById(R.id.binary_tree);
+          Drawable tree_state = getResources().getDrawable(R.drawable.binary_tree_full);
+          tree.setImageDrawable(tree_state);
+     }
+
+     public void clearBinaryTree() {
+          ImageView tree = (ImageView) findViewById(R.id.binary_tree);
+          Drawable tree_state = getResources().getDrawable(R.drawable.binary_tree_blank);
+          tree.setImageDrawable(tree_state);
+     }
+
 }

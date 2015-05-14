@@ -12,5 +12,16 @@
         android:divider="@color/usagetrackerchoice">
 
     </ListView>
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/usage_tracker_banner"
+        android:adjustViewBounds="true"
+        android:maxWidth="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>

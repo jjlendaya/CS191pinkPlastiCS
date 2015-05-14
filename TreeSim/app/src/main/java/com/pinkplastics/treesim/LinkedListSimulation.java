@@ -68,8 +68,6 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.LinkedList;
-
 public class LinkedListSimulation extends ActionBarActivity {
 
 
@@ -91,11 +89,18 @@ public class LinkedListSimulation extends ActionBarActivity {
      final int NODE_TEXT_TMARGIN = 8;
      final int NODE_TEXT_LMARGIN = 18;
 
+     final static int ADD_ACTION = 0;
+     final static int DELETE_ACTION = 1;
+     final static int SEARCH_ACTION = 2;
+     final static int RESET_ACTION = 3;
+     final static int CLEAR_ACTION = 4;
      Dialog searchNodeDialog = null;
      Dialog addNodeDialog = null;
      Dialog deleteNodeDialog = null;
      Dialog clearListDialog = null;
      Dialog defaultListDialog = null;
+
+     boolean menu_enabled = true;
 
      NumberPicker np;
      NumberPicker index;
@@ -129,185 +134,127 @@ public class LinkedListSimulation extends ActionBarActivity {
           linkedListLayout = createLinkedList(linkedList);
           root.addView(linkedListLayout);
 
-          final EditText textField = new EditText(this);
-          textField.setWidth(400);
-          textField.setHeight(100);
-          textField.setText("0");
-          LinearLayout.LayoutParams tfParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          tfParams.setMargins(0,0,0,0);
-          textField.setLayoutParams(tfParams);
-          textField.setTextSize(30);
 
-          TextView indexField = new TextView(this);
-          indexField.setText("Index");
-          indexField.setWidth(100);
-          indexField.setHeight(100);
-          LinearLayout.LayoutParams indexfParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          indexfParams.setMargins(0,0,0,0);
-          indexField.setLayoutParams(indexfParams);
-          indexField.setTextSize(30);
 
-          LinearLayout indexGroup = new LinearLayout(this);
-          LinearLayout.LayoutParams indexParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          indexParams.setMargins(0,20,0,0);
-          indexGroup.setLayoutParams(indexParams);
-          indexGroup.setOrientation(LinearLayout.HORIZONTAL);
-          indexGroup.addView(indexField);
-          indexGroup.addView(textField);
-          root.addView(indexGroup);
+          // -------------------- MENU IS ADDED HERE --------------------
 
-          final EditText textField2 = new EditText(this);
-          textField2.setWidth(400);
-          textField2.setHeight(100);
-          textField2.setText("0");
-          textField2.setTextSize(30);
-          LinearLayout.LayoutParams tf2Params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          tf2Params.setMargins(0,0,0,0);
-          textField.setLayoutParams(tf2Params);
-
-          TextView inputField = new TextView(this);
-          inputField.setText("Value");
-          LinearLayout.LayoutParams inputfParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          inputfParams.setMargins(0,0,0,0);
-          inputField.setLayoutParams(inputfParams);
-          inputField.setWidth(100);
-          inputField.setHeight(100);
-          inputField.setTextSize(30);
-
-          LinearLayout inputGroup = new LinearLayout(this);
-          inputGroup.setOrientation(LinearLayout.HORIZONTAL);
-          LinearLayout.LayoutParams inputParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          inputGroup.setLayoutParams(inputParams);
-          inputGroup.addView(inputField);
-          inputGroup.addView(textField2);
-          root.addView(inputGroup);
-
-          Button searchButton = new Button(this);
-          LinearLayout.LayoutParams sbParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          //sbParams.setMargins(0, 650, 0, 0);
-          searchButton.setText("Search\n(v)");
-          searchButton.setTextSize(10);
-          searchButton.setWidth(100);
-          searchButton.setHeight(100);
-          //sbParams.gravity = Gravity.CENTER_VERTICAL;
-          searchButton.setLayoutParams(sbParams);
-          searchButton.setOnClickListener(new View.OnClickListener() {
+          final ImageView add = (ImageView)findViewById(R.id.linked_list_menu_add);
+          add.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
-                    int searchNum = Integer.parseInt(textField2.getText().toString());
-                    LinearLayout layout = (LinearLayout)root.getChildAt(0);
-                    linkedListSearch(layout,searchNum);
-               }
-          });
 
-          Button addButton = new Button(this);
-          LinearLayout.LayoutParams abParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          //abParams.setMargins(250, 650, 0, 0);
-          //abParams.gravity = Gravity.CENTER_VERTICAL;
-          addButton.setText("Add\n(i,v)");
-          addButton.setTextSize(10);
-          addButton.setWidth(100);
-          addButton.setHeight(100);
-          addButton.setLayoutParams(abParams);
-          addButton.setOnClickListener(new View.OnClickListener() {
-               public void onClick(View v) {
-                    int index= Integer.parseInt(textField.getText().toString());
-                    int data = Integer.parseInt(textField2.getText().toString());
-                    int linkedListIndex = 0;
-                    for (int i = 0; i<root.getChildCount(); i++) {
-                         if (root.getChildAt(i).equals(linkedListLayout)) {
-                              linkedListIndex = i;
-                              break;
-                         }
+                    // set animation
+                    if (menu_enabled) {
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), ADD_ACTION);
+                         add.setImageDrawable(animation);
+                         animation.start();
+
+                         int data = 0; // default values only. delete later.
+                         int index = 0; // default values only. delete later.
+
+                         int linkedListIndex = root.getChildCount() - 1;
+
+                         // Replace with dialogue box function
+                         root.removeViewAt(linkedListIndex);
+                         root.addView(linkedListAdd(linkedList, data, index), linkedListIndex);
                     }
-                    root.removeViewAt(linkedListIndex);
-                    root.addView(linkedListAdd(linkedList,data,index),linkedListIndex);
 
                }
           });
 
-          Button deleteButton = new Button(this);
-          LinearLayout.LayoutParams dbParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          //dbParams.setMargins(500, 650, 0, 0);
-          deleteButton.setText("Delete\n(i)");
-          deleteButton.setTextSize(10);
-          //dbParams.gravity = Gravity.CENTER_VERTICAL;
-          deleteButton.setWidth(100);
-          deleteButton.setHeight(100);
-          deleteButton.setLayoutParams(dbParams);
-          deleteButton.setOnClickListener(new View.OnClickListener() {
+          final ImageView delete = (ImageView)findViewById(R.id.linked_list_menu_delete);
+          delete.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
-                    int index = Integer.parseInt(textField.getText().toString());
-                    int linkedListIndex = 0;
-                    for (int i = 0; i<root.getChildCount(); i++) {
-                         if (root.getChildAt(i).equals(linkedListLayout)) {
-                              linkedListIndex = i;
-                              break;
-                         }
+
+                    if (menu_enabled) {
+                         // set animation
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), DELETE_ACTION);
+                         delete.setImageDrawable(animation);
+                         animation.start();
+
+                         int index = 0; // default values only. delete later.
+                         int linkedListIndex = root.getChildCount() - 1;
+
+                         root.removeViewAt(linkedListIndex);
+                         root.addView(linkedListDelete(linkedList, index), linkedListIndex);
                     }
-                    root.removeViewAt(linkedListIndex);
-                    root.addView(linkedListDelete(linkedList, index),linkedListIndex);
                }
           });
 
-          Button clearButton = new Button(this);
-          LinearLayout.LayoutParams cbParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          //dbParams.setMargins(500, 650, 0, 0);
-          cbParams.gravity = Gravity.CENTER_VERTICAL;
-          clearButton.setText("Clear");
-          clearButton.setTextSize(10);
-          clearButton.setWidth(100);
-          clearButton.setHeight(100);
-          clearButton.setLayoutParams(cbParams);
-          clearButton.setOnClickListener(new View.OnClickListener() {
+          final ImageView search = (ImageView)findViewById(R.id.linked_list_menu_search);
+          search.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
-                    int linkedListIndex = 0;
-                    for (int i = 0; i<root.getChildCount(); i++) {
-                         if (root.getChildAt(i).equals(linkedListLayout)) {
-                              linkedListIndex = i;
-                              break;
-                         }
+
+                    if (menu_enabled) {
+                         // set animation
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), SEARCH_ACTION);
+                         search.setImageDrawable(animation);
+                         animation.start();
+
+                         //int searchNum = Integer.parseInt(textField2.getText().toString());
+                         int searchNum = 69; // default values only. delete later.
+                         LinearLayout layout = (LinearLayout) root.getChildAt(root.getChildCount() - 1);
+                         linkedListSearch(layout, searchNum);
                     }
-                    linkedList.clear();
-                    root.removeViewAt(linkedListIndex);
-                    root.addView(createLinkedList(linkedList),linkedListIndex);
                }
           });
 
-          Button defaultButton = new Button(this);
-          LinearLayout.LayoutParams dfParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          //dbParams.setMargins(500, 650, 0, 0);
-          dfParams.gravity = Gravity.CENTER_VERTICAL;
-          defaultButton.setText("Default");
-          defaultButton.setTextSize(10);
-          defaultButton.setWidth(100);
-          defaultButton.setHeight(100);
-          defaultButton.setLayoutParams(dfParams);
-          defaultButton.setOnClickListener(new View.OnClickListener() {
+          final ImageView reset = (ImageView)findViewById(R.id.linked_list_menu_reset);
+          reset.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
-                    int linkedListIndex = 0;
-                    for (int i = 0; i<root.getChildCount(); i++) {
-                         if (root.getChildAt(i).equals(linkedListLayout)) {
-                              linkedListIndex = i;
-                              break;
-                         }
+                    if (menu_enabled) {
+                         // set animation
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), RESET_ACTION);
+                         reset.setImageDrawable(animation);
+                         animation.start();
+
+                         int linkedListIndex = root.getChildCount() - 1;
+                         linkedList.defaultList();
+                         root.removeViewAt(linkedListIndex);
+                         root.addView(createLinkedList(linkedList), linkedListIndex);
                     }
-                    linkedList.defaultList();
-                    root.removeViewAt(linkedListIndex);
-                    root.addView(createLinkedList(linkedList),linkedListIndex);
                }
           });
 
-          LinearLayout buttonGroup = new LinearLayout(this);
-          LinearLayout.LayoutParams bgParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-          bgParams.gravity = Gravity.CENTER_HORIZONTAL;
-          buttonGroup.setOrientation(LinearLayout.HORIZONTAL);
-          buttonGroup.setLayoutParams(bgParams);
-          buttonGroup.addView(searchButton);
-          buttonGroup.addView(addButton);
-          buttonGroup.addView(deleteButton);
-          buttonGroup.addView(clearButton);
-          buttonGroup.addView(defaultButton);
-          root.addView(buttonGroup);
+          final ImageView clear = (ImageView)findViewById(R.id.linked_list_menu_clear);
+          clear.setOnClickListener(new View.OnClickListener() {
+               public void onClick(View v) {
+                    if (menu_enabled) {
+                         // set animation
+                         AnimationDrawable animation = TreeSimAnimation.animateMenuItem(getApplicationContext(), CLEAR_ACTION);
+                         clear.setImageDrawable(animation);
+                         animation.start();
+
+                         int linkedListIndex = root.getChildCount() - 1;
+                         linkedList.clear();
+                         root.removeViewAt(linkedListIndex);
+                         root.addView(createLinkedList(linkedList), linkedListIndex);
+                    }
+               }
+          });
+
+          final ImageView menu = (ImageView)findViewById(R.id.linked_list_menu_button);
+          menu.setOnClickListener(new View.OnClickListener() {
+               public void onClick(View v) {
+                    if (menu_enabled) {
+                         menu.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_button));
+                         add.setImageDrawable(null);
+                         delete.setImageDrawable(null);
+                         search.setImageDrawable(null);
+                         reset.setImageDrawable(null);
+                         clear.setImageDrawable(null);
+                         menu_enabled = false;
+                    }
+                    else {
+                         menu.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_button_selected));
+                         add.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_add_node));
+                         delete.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_delete_node));
+                         search.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_search_node));
+                         reset.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_reset_to_default));
+                         clear.setImageDrawable(getResources().getDrawable(R.drawable.linked_list_menu_clear_list));
+                         menu_enabled = true;
+                    }
+               }
+          });
 
      }
 
